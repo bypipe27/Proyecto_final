@@ -6,6 +6,14 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>Proyecto_final.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+	<Folder Include="forms\" />
+    <Folder Include="modelos\" />
+    <Folder Include="utilidades\" />
+    <Folder Include="recursos\" />
+  </ItemGroup>
 
 </Project>
