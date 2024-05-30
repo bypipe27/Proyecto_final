@@ -29,29 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
-            Btn_Return = new PictureBox();
+            panel_About = new Panel();
             lbl_TitleHelp = new Label();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            lbl_Objetivo = new Label();
-            lbl_InfoGame = new Label();
+            lbl_InfoComandos = new Label();
             lbl_Comandos = new Label();
-            label3 = new Label();
+            lbl_InfoGame = new Label();
+            lbl_Objetivo = new Label();
+            Btn_Return = new PictureBox();
+            panel_About.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Return).BeginInit();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // Btn_Return
+            // panel_About
             // 
-            Btn_Return.Cursor = Cursors.Hand;
-            Btn_Return.Image = (Image)resources.GetObject("Btn_Return.Image");
-            Btn_Return.Location = new Point(688, 288);
-            Btn_Return.Name = "Btn_Return";
-            Btn_Return.Size = new Size(100, 50);
-            Btn_Return.SizeMode = PictureBoxSizeMode.Zoom;
-            Btn_Return.TabIndex = 0;
-            Btn_Return.TabStop = false;
+            panel_About.BackgroundImageLayout = ImageLayout.Zoom;
+            panel_About.Controls.Add(lbl_TitleHelp);
+            panel_About.Controls.Add(lbl_InfoComandos);
+            panel_About.Controls.Add(lbl_Comandos);
+            panel_About.Controls.Add(lbl_InfoGame);
+            panel_About.Controls.Add(lbl_Objetivo);
+            panel_About.Controls.Add(Btn_Return);
+            panel_About.Dock = DockStyle.Fill;
+            panel_About.Location = new Point(0, 0);
+            panel_About.Name = "panel_About";
+            panel_About.Size = new Size(800, 450);
+            panel_About.TabIndex = 3;
             // 
             // lbl_TitleHelp
             // 
@@ -59,59 +61,21 @@
             lbl_TitleHelp.AutoSize = true;
             lbl_TitleHelp.BackColor = Color.Transparent;
             lbl_TitleHelp.Font = new Font("Comic Sans MS", 29.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_TitleHelp.Location = new Point(258, 24);
+            lbl_TitleHelp.Location = new Point(247, 9);
             lbl_TitleHelp.Name = "lbl_TitleHelp";
             lbl_TitleHelp.Size = new Size(291, 54);
-            lbl_TitleHelp.TabIndex = 1;
+            lbl_TitleHelp.TabIndex = 11;
             lbl_TitleHelp.Text = "COMO JUGAR";
             // 
-            // panel1
+            // lbl_InfoComandos
             // 
-            panel1.Controls.Add(lbl_TitleHelp);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 100);
-            panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
-            panel2.BackgroundImageLayout = ImageLayout.Zoom;
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(lbl_Comandos);
-            panel2.Controls.Add(lbl_InfoGame);
-            panel2.Controls.Add(lbl_Objetivo);
-            panel2.Controls.Add(Btn_Return);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 100);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(800, 350);
-            panel2.TabIndex = 3;
-            // 
-            // lbl_Objetivo
-            // 
-            lbl_Objetivo.AutoSize = true;
-            lbl_Objetivo.BackColor = Color.Transparent;
-            lbl_Objetivo.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            lbl_Objetivo.ForeColor = Color.Red;
-            lbl_Objetivo.Location = new Point(128, 3);
-            lbl_Objetivo.Name = "lbl_Objetivo";
-            lbl_Objetivo.Size = new Size(170, 45);
-            lbl_Objetivo.TabIndex = 1;
-            lbl_Objetivo.Text = "OBJETIVO";
-            lbl_Objetivo.Click += label1_Click;
-            // 
-            // lbl_InfoGame
-            // 
-            lbl_InfoGame.AutoSize = true;
-            lbl_InfoGame.BackColor = Color.Transparent;
-            lbl_InfoGame.Location = new Point(302, 61);
-            lbl_InfoGame.Name = "lbl_InfoGame";
-            lbl_InfoGame.Size = new Size(484, 75);
-            lbl_InfoGame.TabIndex = 2;
-            lbl_InfoGame.Text = resources.GetString("lbl_InfoGame.Text");
-            lbl_InfoGame.Click += lbl_InfoGame_Click;
+            lbl_InfoComandos.AutoSize = true;
+            lbl_InfoComandos.BackColor = Color.Transparent;
+            lbl_InfoComandos.Location = new Point(247, 270);
+            lbl_InfoComandos.Name = "lbl_InfoComandos";
+            lbl_InfoComandos.Size = new Size(368, 105);
+            lbl_InfoComandos.TabIndex = 10;
+            lbl_InfoComandos.Text = resources.GetString("lbl_InfoComandos.Text");
             // 
             // lbl_Comandos
             // 
@@ -119,22 +83,45 @@
             lbl_Comandos.BackColor = Color.Transparent;
             lbl_Comandos.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
             lbl_Comandos.ForeColor = Color.Red;
-            lbl_Comandos.Location = new Point(128, 167);
+            lbl_Comandos.Location = new Point(40, 246);
             lbl_Comandos.Name = "lbl_Comandos";
             lbl_Comandos.Size = new Size(179, 45);
-            lbl_Comandos.TabIndex = 3;
+            lbl_Comandos.TabIndex = 9;
             lbl_Comandos.Text = "Comandos";
-            lbl_Comandos.Click += label2_Click;
             // 
-            // label3
+            // lbl_InfoGame
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Location = new Point(302, 212);
-            label3.Name = "label3";
-            label3.Size = new Size(368, 105);
-            label3.TabIndex = 4;
-            label3.Text = resources.GetString("label3.Text");
+            lbl_InfoGame.AutoSize = true;
+            lbl_InfoGame.BackColor = Color.Transparent;
+            lbl_InfoGame.Location = new Point(247, 119);
+            lbl_InfoGame.Name = "lbl_InfoGame";
+            lbl_InfoGame.Size = new Size(484, 75);
+            lbl_InfoGame.TabIndex = 8;
+            lbl_InfoGame.Text = resources.GetString("lbl_InfoGame.Text");
+            // 
+            // lbl_Objetivo
+            // 
+            lbl_Objetivo.AutoSize = true;
+            lbl_Objetivo.BackColor = Color.Transparent;
+            lbl_Objetivo.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lbl_Objetivo.ForeColor = Color.Red;
+            lbl_Objetivo.Location = new Point(40, 95);
+            lbl_Objetivo.Name = "lbl_Objetivo";
+            lbl_Objetivo.Size = new Size(148, 45);
+            lbl_Objetivo.TabIndex = 7;
+            lbl_Objetivo.Text = "Objetivo";
+            // 
+            // Btn_Return
+            // 
+            Btn_Return.Cursor = Cursors.Hand;
+            Btn_Return.Image = (Image)resources.GetObject("Btn_Return.Image");
+            Btn_Return.Location = new Point(684, 388);
+            Btn_Return.Name = "Btn_Return";
+            Btn_Return.Size = new Size(100, 50);
+            Btn_Return.SizeMode = PictureBoxSizeMode.Zoom;
+            Btn_Return.TabIndex = 6;
+            Btn_Return.TabStop = false;
+            Btn_Return.Click += Btn_Return_Click;
             // 
             // Help
             // 
@@ -143,28 +130,23 @@
             BackColor = SystemColors.ControlDark;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(panel_About);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Help";
             Text = "Help";
+            panel_About.ResumeLayout(false);
+            panel_About.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Return).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox Btn_Return;
+        private Panel panel_About;
         private Label lbl_TitleHelp;
-        private Panel panel1;
-        private Panel panel2;
-        private Label lbl_Objetivo;
-        private Label lbl_InfoGame;
+        private Label lbl_InfoComandos;
         private Label lbl_Comandos;
-        private Label label3;
+        private Label lbl_InfoGame;
+        private Label lbl_Objetivo;
+        private PictureBox Btn_Return;
     }
 }

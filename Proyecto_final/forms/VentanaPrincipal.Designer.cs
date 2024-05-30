@@ -42,7 +42,8 @@
             panel2 = new Panel();
             Btn_Levels = new Button();
             pictureBox2 = new PictureBox();
-            panel1 = new Panel();
+            panel_Dynamic = new Panel();
+            pictureBox1 = new PictureBox();
             BarraTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Restaurar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Maximizar).BeginInit();
@@ -50,6 +51,8 @@
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).BeginInit();
             Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel_Dynamic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // BarraTitle
@@ -157,8 +160,9 @@
             Btn_Help.Name = "Btn_Help";
             Btn_Help.Size = new Size(192, 54);
             Btn_Help.TabIndex = 5;
-            Btn_Help.Text = "COMO JUGAR";
+            Btn_Help.Text = "ABOUT";
             Btn_Help.UseVisualStyleBackColor = true;
+            Btn_Help.Click += Btn_Help_Click;
             // 
             // panel3
             // 
@@ -223,23 +227,33 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
-            // panel1
+            // panel_Dynamic
             // 
-            panel1.AutoSize = true;
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(200, 38);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(743, 406);
-            panel1.TabIndex = 2;
+            panel_Dynamic.AutoSize = true;
+            panel_Dynamic.BackgroundImage = (Image)resources.GetObject("panel_Dynamic.BackgroundImage");
+            panel_Dynamic.BackgroundImageLayout = ImageLayout.Stretch;
+            panel_Dynamic.Controls.Add(pictureBox1);
+            panel_Dynamic.Dock = DockStyle.Fill;
+            panel_Dynamic.Location = new Point(200, 38);
+            panel_Dynamic.Name = "panel_Dynamic";
+            panel_Dynamic.Size = new Size(743, 406);
+            panel_Dynamic.TabIndex = 2;
+            panel_Dynamic.Paint += panel_Dynamic_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(204, 44);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(389, 310);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // VentanaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(943, 444);
-            Controls.Add(panel1);
+            Controls.Add(panel_Dynamic);
             Controls.Add(Menu);
             Controls.Add(BarraTitle);
             FormBorderStyle = FormBorderStyle.None;
@@ -253,6 +267,8 @@
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel_Dynamic.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -261,7 +277,7 @@
 
         private Panel BarraTitle;
         private Panel Menu;
-        private Panel panel1;
+        private Panel panel_Dynamic;
         private PictureBox Btn_Cerrar;
         private PictureBox pictureBox2;
         private PictureBox Btn_Minimizar;
@@ -273,5 +289,6 @@
         private Button Btn_Help;
         private Panel panel3;
         private Button Btn_Start;
+        private PictureBox pictureBox1;
     }
 }

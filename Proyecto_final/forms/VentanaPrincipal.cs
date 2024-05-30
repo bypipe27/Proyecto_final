@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Proyecto_final
 {
     public partial class VentanaPrincipal : Form
@@ -39,6 +41,24 @@ namespace Proyecto_final
         private void Menu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Btn_Help_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_Dynamic_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Cargar el GIF desde un archivo
+            pictureBox1.Image = Image.FromFile("C:\\Users\\San\\Documents\\GitHub\\Santiago-POO\\Proyecto_final\\Proyecto_final\\images\\Disparo_prueba_1.gif");
+
+            // Alternativamente, cargar el GIF desde los recursos del proyecto
+            // pictureBox1.Image = Properties.Resources.tu_gif;
         }
     }
 }

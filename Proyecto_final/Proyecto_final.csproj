@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<Folder Include="forms\" />
     <Folder Include="modelos\" />
     <Folder Include="utilidades\" />
     <Folder Include="recursos\" />
