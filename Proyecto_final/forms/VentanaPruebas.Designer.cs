@@ -33,7 +33,8 @@ namespace Proyecto_final.forms
             components = new System.ComponentModel.Container();
             fontDialog1 = new FontDialog();
             lblPuntaje = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
+            timerFlujo = new System.Windows.Forms.Timer(components);
+            timerMovJugador = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblPuntaje
@@ -48,10 +49,16 @@ namespace Proyecto_final.forms
             lblPuntaje.TabIndex = 0;
             lblPuntaje.Text = "0000";
             // 
-            // timer1
+            // timerFlujo
             // 
-            timer1.Interval = 300;
-            timer1.Tick += flujoDeTrabajo;
+            timerFlujo.Enabled = true;
+            timerFlujo.Interval = 500;
+            timerFlujo.Tick += flujoDeTrabajo;
+            // 
+            // timerMovJugador
+            // 
+            timerMovJugador.Interval = 300;
+            timerMovJugador.Tick += timerFlujoDeMovJug;
             // 
             // VentanaPruebas
             // 
@@ -62,12 +69,14 @@ namespace Proyecto_final.forms
             ClientSize = new Size(784, 461);
             Controls.Add(lblPuntaje);
             Font = new Font("Microsoft Sans Serif", 8.25F);
+            KeyPreview = true;
             MaximumSize = new Size(800, 500);
             MinimumSize = new Size(800, 500);
             Name = "VentanaPruebas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "VentanaPruebas";
             KeyDown += MovimientoNaveJugador;
+            KeyUp += DisparoJugador;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -76,6 +85,7 @@ namespace Proyecto_final.forms
 
         private FontDialog fontDialog1;
         private Label lblPuntaje;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerFlujo;
+        private System.Windows.Forms.Timer timerMovJugador;
     }
 }

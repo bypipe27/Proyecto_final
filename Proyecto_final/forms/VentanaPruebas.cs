@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Proyecto_final.forms
         int altoAreaTrabajo;
         private NaveJugador naveJugador = new NaveJugador();
         List<PictureBox> disparosJugador = new List<PictureBox>();
+        Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>();
         public VentanaPruebas()
         {
             InitializeComponent();
@@ -39,31 +41,41 @@ namespace Proyecto_final.forms
             naveJugador.Visible = true;
             this.Controls.Add(naveJugador);
 
-
         }
 
         private void MovimientoNaveJugador(object sender, KeyEventArgs e)
         {
             int coorActualNaveJugadorX = naveJugador.Location.X;
             int coorActualNaveJugadorY = naveJugador.Location.Y;
+
             switch (e.KeyCode)
             {
                 case Keys.Right:
-                    if (coorActualNaveJugadorX < ClientSize.Width - naveJugador.Size.Width) coorActualNaveJugadorX += naveJugador.velocidadMovNaveJugador();
+                    estadosTeclas[Keys.Right] = true;
+                    if (coorActualNaveJugadorX < ClientSize.Width - naveJugador.Size.Width)
+                        coorActualNaveJugadorX += naveJugador.velocidadMovNaveJugador();
                     break;
+
                 case Keys.Left:
-                    if (coorActualNaveJugadorX > 0) coorActualNaveJugadorX -= naveJugador.velocidadMovNaveJugador();
+                    if (coorActualNaveJugadorX > 0)
+                        coorActualNaveJugadorX -= naveJugador.velocidadMovNaveJugador();
                     break;
+
                 case Keys.Up:
-                    if (coorActualNaveJugadorY > 0) coorActualNaveJugadorY -= naveJugador.velocidadMovNaveJugador();
+                    if (coorActualNaveJugadorY > 0)
+                        coorActualNaveJugadorY -= naveJugador.velocidadMovNaveJugador();
                     break;
+
                 case Keys.Down:
-                    if (coorActualNaveJugadorY < ClientSize.Height - naveJugador.Size.Height) coorActualNaveJugadorY += naveJugador.velocidadMovNaveJugador();
+                    if (coorActualNaveJugadorY < ClientSize.Height - naveJugador.Size.Height)
+                        coorActualNaveJugadorY += naveJugador.velocidadMovNaveJugador();
                     break;
+
                 case Keys.Space:
-                    int disparoPosX = ClientSize.Width - naveJugador.Size.Width / 2;
-                    int disparoPosY = ClientSize.Height - naveJugador.Size.Height;
+
                     PictureBox disparoJugador = naveJugador.tipoDeMunicion();
+                    int disparoPosX = naveJugador.Location.X - disparoJugador.Width / 2 + naveJugador.Width / 2 + 1;
+                    int disparoPosY = naveJugador.Location.Y;
                     disparoJugador.Location = new System.Drawing.Point(disparoPosX, disparoPosY);
                     disparoJugador.Visible = true;
                     disparosJugador.Add(disparoJugador);
@@ -75,11 +87,19 @@ namespace Proyecto_final.forms
             naveJugador.establecerPosicion(coorActualNaveJugadorX, coorActualNaveJugadorY);
         }
 
+        private void DisparoJugador(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+
+            }
+        }
+
         private void flujoDeTrabajo(object sender, EventArgs e)
         {
             for (int i = 0; i < disparosJugador.Count; i++)
             {
-                disparosJugador[i].Top += naveJugador.velocidadMovNaveJugador() * 2;
+                disparosJugador[i].Top -= naveJugador.velocidadMovNaveJugador() * 2;
                 if (disparosJugador[i].Bottom < 0)
                 {
                     disparosJugador[i].Visible = false;
@@ -89,6 +109,14 @@ namespace Proyecto_final.forms
             }
         }
 
+        private void timerFlujoDeMovJug(object sender, EventArgs e)
+        {
+            int coorActualNaveJugadorX = naveJugador.Location.X;
+            int coorActualNaveJugadorY = naveJugador.Location.Y;
+
             
+            if (estadosTeclas[Keys.Right] && coorActualNaveJugadorX < ClientSize.Width - naveJugador.Size.Width)
+                coorActualNaveJugadorX += naveJugador.velocidadMovNaveJugador();
+        }
     }
 }

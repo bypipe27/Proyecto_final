@@ -11,7 +11,7 @@ namespace Proyecto_final.modelos
         protected PictureBox imgMunicion = new PictureBox
         {
             Image = Image.FromFile("..\\..\\..\\recursos\\nave_jugador.png"),
-            Size = new System.Drawing.Size(2, 5),
+            Size = new System.Drawing.Size(20, 20),
             SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
             TabIndex = 2,
             TabStop = false,
@@ -20,10 +20,10 @@ namespace Proyecto_final.modelos
 
         public NaveJugador() : base(
             Image.FromFile("..\\..\\..\\recursos\\nave_jugador.png"),
-            60,
-            70,
+            61,
+            71,
             3,
-            10)
+            20)
         {
             this.Name = "NaveJugador";
 
