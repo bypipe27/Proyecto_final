@@ -36,5 +36,9 @@ namespace Proyecto_final
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void Menu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

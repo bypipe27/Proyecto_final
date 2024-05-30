@@ -35,6 +35,12 @@
             Btn_Minimizar = new PictureBox();
             Btn_Cerrar = new PictureBox();
             Menu = new Panel();
+            panel4 = new Panel();
+            Btn_Help = new Button();
+            panel3 = new Panel();
+            Btn_Start = new Button();
+            panel2 = new Panel();
+            Btn_Levels = new Button();
             pictureBox2 = new PictureBox();
             panel1 = new Panel();
             BarraTitle.SuspendLayout();
@@ -48,7 +54,7 @@
             // 
             // BarraTitle
             // 
-            BarraTitle.BackColor = Color.DimGray;
+            BarraTitle.BackColor = Color.DarkCyan;
             BarraTitle.Controls.Add(Btn_Restaurar);
             BarraTitle.Controls.Add(Btn_Maximizar);
             BarraTitle.Controls.Add(Btn_Minimizar);
@@ -115,12 +121,94 @@
             // Menu
             // 
             Menu.BackColor = Color.FromArgb(29, 32, 40);
+            Menu.Controls.Add(panel4);
+            Menu.Controls.Add(Btn_Help);
+            Menu.Controls.Add(panel3);
+            Menu.Controls.Add(Btn_Start);
+            Menu.Controls.Add(panel2);
+            Menu.Controls.Add(Btn_Levels);
             Menu.Controls.Add(pictureBox2);
             Menu.Dock = DockStyle.Left;
             Menu.Location = new Point(0, 38);
             Menu.Name = "Menu";
             Menu.Size = new Size(200, 406);
             Menu.TabIndex = 1;
+            Menu.Paint += Menu_Paint;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.DarkCyan;
+            panel4.Location = new Point(0, 245);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(10, 54);
+            panel4.TabIndex = 6;
+            // 
+            // Btn_Help
+            // 
+            Btn_Help.AutoSize = true;
+            Btn_Help.Cursor = Cursors.Hand;
+            Btn_Help.FlatAppearance.BorderColor = Color.White;
+            Btn_Help.FlatAppearance.BorderSize = 0;
+            Btn_Help.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
+            Btn_Help.FlatStyle = FlatStyle.Flat;
+            Btn_Help.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
+            Btn_Help.ForeColor = Color.Cornsilk;
+            Btn_Help.Location = new Point(12, 245);
+            Btn_Help.Name = "Btn_Help";
+            Btn_Help.Size = new Size(192, 54);
+            Btn_Help.TabIndex = 5;
+            Btn_Help.Text = "COMO JUGAR";
+            Btn_Help.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.DarkCyan;
+            panel3.Location = new Point(0, 176);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(10, 54);
+            panel3.TabIndex = 4;
+            // 
+            // Btn_Start
+            // 
+            Btn_Start.AutoSize = true;
+            Btn_Start.Cursor = Cursors.Hand;
+            Btn_Start.FlatAppearance.BorderColor = Color.White;
+            Btn_Start.FlatAppearance.BorderSize = 0;
+            Btn_Start.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
+            Btn_Start.FlatStyle = FlatStyle.Flat;
+            Btn_Start.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
+            Btn_Start.ForeColor = Color.Cornsilk;
+            Btn_Start.Location = new Point(12, 176);
+            Btn_Start.Name = "Btn_Start";
+            Btn_Start.Size = new Size(188, 54);
+            Btn_Start.TabIndex = 3;
+            Btn_Start.Text = "START";
+            Btn_Start.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.DarkCyan;
+            panel2.Location = new Point(0, 109);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(10, 54);
+            panel2.TabIndex = 2;
+            // 
+            // Btn_Levels
+            // 
+            Btn_Levels.AutoSize = true;
+            Btn_Levels.Cursor = Cursors.Hand;
+            Btn_Levels.FlatAppearance.BorderColor = Color.White;
+            Btn_Levels.FlatAppearance.BorderSize = 0;
+            Btn_Levels.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
+            Btn_Levels.FlatStyle = FlatStyle.Flat;
+            Btn_Levels.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
+            Btn_Levels.ForeColor = Color.Cornsilk;
+            Btn_Levels.Location = new Point(12, 109);
+            Btn_Levels.Name = "Btn_Levels";
+            Btn_Levels.Size = new Size(188, 54);
+            Btn_Levels.TabIndex = 1;
+            Btn_Levels.Text = "NIVELES";
+            Btn_Levels.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -163,6 +251,7 @@
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
             Menu.ResumeLayout(false);
+            Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -178,5 +267,11 @@
         private PictureBox Btn_Minimizar;
         private PictureBox Btn_Restaurar;
         private PictureBox Btn_Maximizar;
+        private Button Btn_Levels;
+        private Panel panel2;
+        private Panel panel4;
+        private Button Btn_Help;
+        private Panel panel3;
+        private Button Btn_Start;
     }
 }
