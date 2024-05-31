@@ -31,6 +31,7 @@ namespace Proyecto_final.forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPruebas));
             fontDialog1 = new FontDialog();
             lblPuntaje = new Label();
             timerFlujo = new System.Windows.Forms.Timer(components);
@@ -39,44 +40,29 @@ namespace Proyecto_final.forms
             // 
             // lblPuntaje
             // 
-            lblPuntaje.AutoSize = true;
+            resources.ApplyResources(lblPuntaje, "lblPuntaje");
             lblPuntaje.BackColor = Color.Transparent;
-            lblPuntaje.Font = new Font("Bauhaus 93", 20F);
             lblPuntaje.ForeColor = SystemColors.MenuHighlight;
-            lblPuntaje.Location = new Point(12, 9);
             lblPuntaje.Name = "lblPuntaje";
-            lblPuntaje.Size = new Size(73, 30);
-            lblPuntaje.TabIndex = 0;
-            lblPuntaje.Text = "0000";
             // 
             // timerFlujo
             // 
-            timerFlujo.Enabled = true;
-            timerFlujo.Interval = 500;
+            timerFlujo.Interval = 200;
             timerFlujo.Tick += flujoDeTrabajo;
             // 
             // timerMovJugador
             // 
-            timerMovJugador.Interval = 300;
             timerMovJugador.Tick += timerFlujoDeMovJug;
             // 
             // VentanaPruebas
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(784, 461);
             Controls.Add(lblPuntaje);
-            Font = new Font("Microsoft Sans Serif", 8.25F);
-            KeyPreview = true;
-            MaximumSize = new Size(800, 500);
-            MinimumSize = new Size(800, 500);
             Name = "VentanaPruebas";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "VentanaPruebas";
-            KeyDown += MovimientoNaveJugador;
-            KeyUp += DisparoJugador;
+            KeyDown += keyDownAction;
+            KeyUp += keyUpAction;
             ResumeLayout(false);
             PerformLayout();
         }
