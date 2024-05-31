@@ -243,7 +243,7 @@ namespace Proyecto_final.forms
             }
         }
 
-        //Este timer esta encargado de crear los disparos de cada minion
+        //Este timer esta encargado de crear los disparos de cada minion 
         private void timerDisparoMinions(object sender, EventArgs e)
         {
             timerGatilloMinions.Stop();
@@ -268,106 +268,121 @@ namespace Proyecto_final.forms
         //Timer que capta cuando un minion es impactado por un proyectil del jugador y la borra,
         //asi como si el minion colisiona con la nave del jugador.
         //También controla el movimiento de los minions y sus proyectiles si estos se encuentran
-        //ya creados en el control; asi como su eliminacion cuando salen del area de trabajo
+        //ya creados en el control; asi como su eliminacion cuando salen del area de trabajo y 
+        //de detectar las colisiones de la nave del jugador con los disparos de los minions
         private void timerFlujoMovMinions(object sender, EventArgs e)
         {
             timerMovMinios.Stop();
-            //Deteccion de colision entre nave minion y proyectil o nave de jugador
-            for(int ind = 0; ind < minionsActivos.Count; ind++)
+            //Detección de colision entre nave minion y proyectil o nave de jugador
+            if (this.Controls.Contains(naveJugador))
             {
-                if (minionsActivos[ind].Bounds.IntersectsWith(naveJugador.Bounds))
+                for (int ind = 0; ind < minionsActivos.Count; ind++)
                 {
-                    danoNaveJug();
-                    this.Controls.Remove(minionsActivos[ind]);
-                    minionsActivos.Remove(minionsActivos[ind]);
-                    break;
-                }
-                for (int j = 0; j < disparosJugador.Count; j++)
-                {
-                    if (minionsActivos[ind].Bounds.IntersectsWith(disparosJugador[j].Bounds))
+                    if (minionsActivos[ind].Bounds.IntersectsWith(naveJugador.Bounds))
                     {
-                        naveJugador.sumarPuntos(minionsActivos[ind].getPuntos());
-                        lblPuntaje.Text =  (naveJugador.getPuntos()).PadLeft(4, '0');
-
+                        danoNaveJug();
                         this.Controls.Remove(minionsActivos[ind]);
                         minionsActivos.Remove(minionsActivos[ind]);
-                        this.Controls.Remove(disparosJugador[j]);
-                        disparosJugador.Remove(disparosJugador[j]);
                         break;
                     }
-                }
-
-                
-            }
-            //control del movimiento de las naves minions
-            for (int i = 0; i < minionsActivos.Count; i++)
-            {
-                String orientacion = minionsActivos[i].getOrientacionMov();
-                int velocidad = minionsActivos[i].velocidadMinion();
-
-
-
-                if (orientacion == Direcciones.Opciones.IZQ.ToString())
-                {
-                    minionsActivos[i].Left -= velocidad;
-                    if (minionsActivos[i].Right <= 0)
+                    for (int j = 0; j < disparosJugador.Count; j++)
                     {
-                        this.Controls.Remove(minionsActivos[i]);
-                        minionsActivos.Remove(minionsActivos[i]);
+                        if (minionsActivos[ind].Bounds.IntersectsWith(disparosJugador[j].Bounds))
+                        {
+                            naveJugador.sumarPuntos(minionsActivos[ind].getPuntos());
+                            lblPuntaje.Text = (naveJugador.getPuntos()).PadLeft(4, '0');
+
+                            this.Controls.Remove(minionsActivos[ind]);
+                            minionsActivos.Remove(minionsActivos[ind]);
+                            this.Controls.Remove(disparosJugador[j]);
+                            disparosJugador.Remove(disparosJugador[j]);
+                            break;
+                        }
                     }
-                    continue;
+
+
                 }
-                else if (orientacion == Direcciones.Opciones.DER.ToString())
+                //control del movimiento de las naves minions
+                for (int i = 0; i < minionsActivos.Count; i++)
                 {
-                    minionsActivos[i].Left += velocidad;
-                    if (minionsActivos[i].Left >= anchoAreaTrabajo)
+                    String orientacion = minionsActivos[i].getOrientacionMov();
+                    int velocidad = minionsActivos[i].velocidadMinion();
+
+
+
+                    if (orientacion == Direcciones.Opciones.IZQ.ToString())
                     {
-                        this.Controls.Remove(minionsActivos[i]);
-                        minionsActivos.Remove(minionsActivos[i]);
+                        minionsActivos[i].Left -= velocidad;
+                        if (minionsActivos[i].Right <= 0)
+                        {
+                            this.Controls.Remove(minionsActivos[i]);
+                            minionsActivos.Remove(minionsActivos[i]);
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (orientacion == Direcciones.Opciones.NONE.ToString())
-                {
-                    minionsActivos[i].Top += velocidad;
-                    if (minionsActivos[i].Top >= altoAreaTrabajo)
+                    else if (orientacion == Direcciones.Opciones.DER.ToString())
                     {
-
-                        this.Controls.Remove(minionsActivos[i]);
-                        minionsActivos.Remove(minionsActivos[i]);
+                        minionsActivos[i].Left += velocidad;
+                        if (minionsActivos[i].Left >= anchoAreaTrabajo)
+                        {
+                            this.Controls.Remove(minionsActivos[i]);
+                            minionsActivos.Remove(minionsActivos[i]);
+                        }
+                        continue;
                     }
-                    continue;
+                    else if (orientacion == Direcciones.Opciones.NONE.ToString())
+                    {
+                        minionsActivos[i].Top += velocidad;
+                        if (minionsActivos[i].Top >= altoAreaTrabajo)
+                        {
+
+                            this.Controls.Remove(minionsActivos[i]);
+                            minionsActivos.Remove(minionsActivos[i]);
+                        }
+                        continue;
+                    }
+
+
                 }
-
-
-            }
-            //control movimiento proyectiles enemigos
-            for (int i = 0; i < disparosEnemigos.Count; i++)
-            {
-                disparosEnemigos[i].Top += 50;
-                if (disparosEnemigos[i].Top > altoAreaTrabajo)
+                //control movimiento proyectiles enemigos y colision con nave jugador
+                for (int i = 0; i < disparosEnemigos.Count; i++)
                 {
+                    disparosEnemigos[i].Top += 50;
+                    bool colision = disparosEnemigos[i].Bounds.IntersectsWith(naveJugador.Bounds);
+                    if (disparosEnemigos[i].Top > altoAreaTrabajo || colision )
+                    {
+                        if (colision) danoNaveJug();
 
-                    this.Controls.Remove(disparosEnemigos[i]);
-                    disparosEnemigos.Remove(disparosEnemigos[i]);
+                        this.Controls.Remove(disparosEnemigos[i]);
+                        disparosEnemigos.Remove(disparosEnemigos[i]);
+                    }
 
+                    
                 }
-            }
 
-            timerMovMinios.Enabled = true;
-        }
+                timerMovMinios.Enabled = true;
+            }
+        } 
 
 
         //Resta la vida del jugador y lo elimina si llega a 0
         private void danoNaveJug()
         {
+            
             naveJugador.restarVida();
             lblVidas.Text = naveJugador.getVidas().ToString();
-            if(naveJugador.getVidas() == 0)
+            if (naveJugador.getVidas() == 0)
             {
+                naveJugador.Location = new Point(-naveJugador.Width, -naveJugador.Height);
+                naveJugador.Visible = false;
                 this.Controls.Remove(naveJugador);
-                disparosEnemigos.Remove(naveJugador);
+
+                timerMovMinios.Enabled = false;   
+                timerFlujoDisparos.Enabled = false;
+                timerGatilloMinions.Enabled = false;
+                timerSpawnEnemigos.Enabled = false;
             }
+            
         }
     }
 }
