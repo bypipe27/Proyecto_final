@@ -201,6 +201,15 @@
   <metadata name="timerMovMinios.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>748, 23</value>
   </metadata>
+  <metadata name="timerMovInicialBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>890, 23</value>
+  </metadata>
+  <metadata name="timerMovBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1051, 23</value>
+  </metadata>
+  <metadata name="timerGatilloBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1181, 23</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -262,6 +271,24 @@
     <value>timerMovMinios</value>
   </data>
   <data name="&gt;&gt;timerMovMinios.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerMovInicialBoss.Name" xml:space="preserve">
+    <value>timerMovInicialBoss</value>
+  </data>
+  <data name="&gt;&gt;timerMovInicialBoss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerMovBoss.Name" xml:space="preserve">
+    <value>timerMovBoss</value>
+  </data>
+  <data name="&gt;&gt;timerMovBoss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerGatilloBoss.Name" xml:space="preserve">
+    <value>timerGatilloBoss</value>
+  </data>
+  <data name="&gt;&gt;timerGatilloBoss.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

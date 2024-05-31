@@ -57,7 +57,7 @@ namespace Proyecto_final.forms
                 naveJugador.Visible = true;
                 this.Controls.Add(naveJugador);
                 actualizarVidas();
-                
+
 
                 timerFlujoDisparos.Start();
                 timerMovJugador.Start();
@@ -95,7 +95,7 @@ namespace Proyecto_final.forms
         }
 
         //Se captura los eventos referentes a cuando se suelta una tecla presionada
-        
+
         private void keyUpAction(object sender, KeyEventArgs e)
         {
             try
@@ -175,16 +175,16 @@ namespace Proyecto_final.forms
 
             timerMovJugador.Enabled = true;
         }
-       
-        //Aqui se controla la creacion de enemigos cada cierto tiempo
+
+        //Aqui se controla la creacion de enemigos cada cierto tiempo e inicia la aparicion del boss
         private void TimerFlujoaparicionEnemigos(object sender, EventArgs e)
         {
             timerSpawnEnemigos.Stop();
             if (cntMinions > 0)
             {
                 EnemigoMinion enemigoMinion = new EnemigoMinion();
-                int minionPosInicialX = posicionAleatoriaX(enemigoMinion.Size.Width);
-                int minionPosInicialY = posicionAleatoriaY(minionPosInicialX);
+                int minionPosInicialX = posicionAleatoriaAparicionMinionX(enemigoMinion.Size.Width);
+                int minionPosInicialY = posicionAleatoriaAparicionMinionY(minionPosInicialX);
                 enemigoMinion.establecerPosicion(minionPosInicialX, minionPosInicialY);
                 enemigoMinion.Visible = true;
 
@@ -209,21 +209,27 @@ namespace Proyecto_final.forms
 
             }
 
-            if(cntMinions == 0 && minionsActivos.Count == 0)
+            if (cntMinions == 0 && minionsActivos.Count == 0)
             {
-                enemigoBoss.Location = new System.Drawing.Point(anchoAreaTrabajo / 2 - enemigoBoss.Width/2, -enemigoBoss.Height);
+                enemigoBoss.Location = new System.Drawing.Point(anchoAreaTrabajo / 2 - enemigoBoss.Width / 2, -enemigoBoss.Height);
                 enemigoBoss.Visible = true;
                 this.Controls.Add(enemigoBoss);
+                timerSpawnEnemigos.Enabled = false;
+                timerGatilloMinions.Enabled = false;
+                timerMovMinios.Enabled = false;
+                timerMovInicialBoss.Start();
             }
+            else
+            {
 
-
+                timerSpawnEnemigos.Enabled = true;
+            }
             GC.Collect();
 
-            timerSpawnEnemigos.Enabled = true;
         }
 
         //Determina la posicion aleatoria X del minion
-        private int posicionAleatoriaX(int sizeW)
+        private int posicionAleatoriaAparicionMinionX(int sizeW)
         {
             int posX = rand.Next(anchoAreaTrabajo);
 
@@ -246,7 +252,7 @@ namespace Proyecto_final.forms
 
         }
         //Determina la posicion aleatoria Y del minion
-        private int posicionAleatoriaY(int x)
+        private int posicionAleatoriaAparicionMinionY(int x)
         {
             if (x <= anchoAreaTrabajo * 0.15 || x >= anchoAreaTrabajo * 0.85)
             {
@@ -360,12 +366,12 @@ namespace Proyecto_final.forms
 
 
                 }
-                //control movimiento proyectiles enemigos y colision con nave jugador
+                //control movimiento proyectiles enemigos y su colision con nave jugador
                 for (int i = 0; i < disparosEnemigos.Count; i++)
                 {
                     disparosEnemigos[i].Top += 50;
                     bool colision = disparosEnemigos[i].Bounds.IntersectsWith(naveJugador.Bounds);
-                    if (disparosEnemigos[i].Top > altoAreaTrabajo || colision )
+                    if (disparosEnemigos[i].Top > altoAreaTrabajo || colision)
                     {
                         if (colision) danoNaveJug();
 
@@ -373,18 +379,18 @@ namespace Proyecto_final.forms
                         disparosEnemigos.Remove(disparosEnemigos[i]);
                     }
 
-                    
+
                 }
 
                 timerMovMinios.Enabled = true;
             }
-        } 
+        }
 
 
         //Resta la vida del jugador y lo elimina si llega a 0
         private void danoNaveJug()
         {
-            
+
             naveJugador.restarVida();
             actualizarVidas();
             if (naveJugador.getVidas() == 0)
@@ -393,13 +399,76 @@ namespace Proyecto_final.forms
                 naveJugador.Visible = false;
                 this.Controls.Remove(naveJugador);
 
-                timerMovMinios.Enabled = false;   
+                timerMovMinios.Enabled = false;
                 timerFlujoDisparos.Enabled = false;
                 timerGatilloMinions.Enabled = false;
                 timerSpawnEnemigos.Enabled = false;
                 this.Controls.Clear();
                 GC.Collect();
             }
+
+        }
+
+        //Control de la entrada del jefe y se inicia su flujo de movimiento y disparos
+        private void timerFlujoInicialMovBoss(object sender, EventArgs e)
+        {
+            timerMovInicialBoss.Stop();
+
+            if(enemigoBoss.Bottom < altoAreaTrabajo / 2)
+            {
+                enemigoBoss.Top += enemigoBoss.velocidadBoss();
+                timerMovInicialBoss.Enabled = true;
+            }
+            else
+            {
+                timerMovInicialBoss.Enabled = false;
+                timerMovBoss.Start();
+                timerGatilloBoss.Start();
+            }
+
+        }
+
+        private void timerFlujoDisparosBoss(object sender, EventArgs e)
+        {
+            timerGatilloBoss.Stop();
+
+            timerGatilloBoss.Enabled = true;
+        }
+
+        //Se controla flujo de movimiento del boss y su colision con diparos y nave del jugador
+        private void timerFlujoMovBoss(object sender, EventArgs e)
+        {
+            timerMovBoss.Stop();
+
+
+            enemigoBoss.Location = new Point(posicionAleatoriaMovBossX(), posicionAleatoriaMovBossY());
+
+
+            timerMovBoss.Enabled = true;
+        }
+        //Determina la posicion aleatoria movimiento X del boss
+        private int posicionAleatoriaMovBossX()
+        {
+            int posX = rand.Next(anchoAreaTrabajo);
+
+            if (posX >= anchoAreaTrabajo - enemigoBoss.Width)
+            {
+                return anchoAreaTrabajo - enemigoBoss.Width;
+            }
+            else
+            {
+                return posX;
+            }
+
+
+
+        }
+        //Determina la posicion aleatoria movimiento Y del boss
+        private int posicionAleatoriaMovBossY()
+        {
+            int posY = rand.Next(altoAreaTrabajo/2);
+
+                return posY;
             
         }
     }

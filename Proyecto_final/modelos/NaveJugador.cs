@@ -8,6 +8,7 @@ namespace Proyecto_final.modelos
 {
     internal class NaveJugador : Nave
     {
+        
 
         public NaveJugador() : base(
             Image.FromFile("..\\..\\..\\recursos\\nave_jugador.png"),

@@ -15,7 +15,7 @@ namespace Proyecto_final.modelos
             54,
             1,
             10,
-            5)
+            10)
         {
             this.Name = "NaveBoss";
         }
