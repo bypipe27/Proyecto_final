@@ -12,11 +12,11 @@ namespace Proyecto_final.modelos
 
         public EnemigoMinion() : base(
             Image.FromFile("..\\..\\..\\recursos\\nave_boss1.png"),
-            80,
-            54,
+            60,
+            40,
             1,
             10,
-            10)
+            5)
         {
             this.Name = "NaveMinion";
 

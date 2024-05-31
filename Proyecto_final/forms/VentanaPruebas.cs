@@ -19,6 +19,7 @@ namespace Proyecto_final.forms
     {
         int cntMinions = 10;
         List<EnemigoMinion> minionsActivos = new List<EnemigoMinion>();
+        EnemigoBoss enemigoBoss = new EnemigoBoss();
         int anchoAreaTrabajo;
         int altoAreaTrabajo;
         int coorActualNaveJugadorX;
@@ -55,7 +56,8 @@ namespace Proyecto_final.forms
                 naveJugador.establecerPosicion(JugadorPosInicialX, JugadorPosInicialY);
                 naveJugador.Visible = true;
                 this.Controls.Add(naveJugador);
-                lblVidas.Text = naveJugador.getVidas().ToString();
+                actualizarVidas();
+                
 
                 timerFlujoDisparos.Start();
                 timerMovJugador.Start();
@@ -72,6 +74,12 @@ namespace Proyecto_final.forms
 
 
         }
+
+        private void actualizarVidas()
+        {
+            lblVidas.Text = "Vidas: " + naveJugador.getVidas().ToString();
+        }
+
         //Se captura los eventos referentes a cuando se presiona una tecla
         private void keyDownAction(object sender, KeyEventArgs e)
         {
@@ -132,7 +140,7 @@ namespace Proyecto_final.forms
             timerFlujoDisparos.Stop();
             for (int i = 0; i < disparosJugador.Count; i++)
             {
-                disparosJugador[i].Top -= naveJugador.velocidadMovNaveJugador() * 5;
+                disparosJugador[i].Top -= naveJugador.velocidadMovNaveJugador();
                 if (disparosJugador[i].Bottom < 0)
                 {
                     this.Controls.Remove(disparosJugador[i]);
@@ -199,6 +207,13 @@ namespace Proyecto_final.forms
                 this.Controls.Add(enemigoMinion);
                 cntMinions--;
 
+            }
+
+            if(cntMinions == 0 && minionsActivos.Count == 0)
+            {
+                enemigoBoss.Location = new System.Drawing.Point(anchoAreaTrabajo / 2 - enemigoBoss.Width/2, -enemigoBoss.Height);
+                enemigoBoss.Visible = true;
+                this.Controls.Add(enemigoBoss);
             }
 
 
@@ -270,9 +285,10 @@ namespace Proyecto_final.forms
         //También controla el movimiento de los minions y sus proyectiles si estos se encuentran
         //ya creados en el control; asi como su eliminacion cuando salen del area de trabajo y 
         //de detectar las colisiones de la nave del jugador con los disparos de los minions
-        private void timerFlujoMovMinions(object sender, EventArgs e)
+        private void timerFlujoMovMinionsYProyectiles(object sender, EventArgs e)
         {
             timerMovMinios.Stop();
+
             //Detección de colision entre nave minion y proyectil o nave de jugador
             if (this.Controls.Contains(naveJugador))
             {
@@ -370,7 +386,7 @@ namespace Proyecto_final.forms
         {
             
             naveJugador.restarVida();
-            lblVidas.Text = naveJugador.getVidas().ToString();
+            actualizarVidas();
             if (naveJugador.getVidas() == 0)
             {
                 naveJugador.Location = new Point(-naveJugador.Width, -naveJugador.Height);
@@ -381,6 +397,8 @@ namespace Proyecto_final.forms
                 timerFlujoDisparos.Enabled = false;
                 timerGatilloMinions.Enabled = false;
                 timerSpawnEnemigos.Enabled = false;
+                this.Controls.Clear();
+                GC.Collect();
             }
             
         }

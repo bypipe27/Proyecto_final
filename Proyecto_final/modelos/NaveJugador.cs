@@ -14,7 +14,7 @@ namespace Proyecto_final.modelos
             61,
             71,
             3,
-            10,
+            30,
             0)
         {
             this.Name = "NaveJugador";

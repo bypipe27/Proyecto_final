@@ -65,7 +65,7 @@ namespace Proyecto_final.forms
             // 
             // timerGatilloMinions
             // 
-            timerGatilloMinions.Interval = 700;
+            timerGatilloMinions.Interval = 1500;
             timerGatilloMinions.Tick += timerDisparoMinions;
             // 
             // lblVidas
@@ -78,7 +78,7 @@ namespace Proyecto_final.forms
             // timerMovMinios
             // 
             timerMovMinios.Interval = 200;
-            timerMovMinios.Tick += timerFlujoMovMinions;
+            timerMovMinios.Tick += timerFlujoMovMinionsYProyectiles;
             // 
             // VentanaPruebas
             // 
