@@ -36,23 +36,23 @@
             Btn_Cerrar = new PictureBox();
             Menu = new Panel();
             panel4 = new Panel();
-            Btn_Help = new Button();
+            Btn_About = new Button();
             panel3 = new Panel();
             Btn_Start = new Button();
             panel2 = new Panel();
             Btn_Levels = new Button();
-            pictureBox2 = new PictureBox();
+            Btn_Exit = new PictureBox();
             panel_Dynamic = new Panel();
-            pictureBox1 = new PictureBox();
+            fondo_inicio = new PictureBox();
             BarraTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Restaurar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Maximizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).BeginInit();
             Menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Btn_Exit).BeginInit();
             panel_Dynamic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fondo_inicio).BeginInit();
             SuspendLayout();
             // 
             // BarraTitle
@@ -125,12 +125,12 @@
             // 
             Menu.BackColor = Color.FromArgb(29, 32, 40);
             Menu.Controls.Add(panel4);
-            Menu.Controls.Add(Btn_Help);
+            Menu.Controls.Add(Btn_About);
             Menu.Controls.Add(panel3);
             Menu.Controls.Add(Btn_Start);
             Menu.Controls.Add(panel2);
             Menu.Controls.Add(Btn_Levels);
-            Menu.Controls.Add(pictureBox2);
+            Menu.Controls.Add(Btn_Exit);
             Menu.Dock = DockStyle.Left;
             Menu.Location = new Point(0, 38);
             Menu.Name = "Menu";
@@ -146,23 +146,23 @@
             panel4.Size = new Size(10, 54);
             panel4.TabIndex = 6;
             // 
-            // Btn_Help
+            // Btn_About
             // 
-            Btn_Help.AutoSize = true;
-            Btn_Help.Cursor = Cursors.Hand;
-            Btn_Help.FlatAppearance.BorderColor = Color.White;
-            Btn_Help.FlatAppearance.BorderSize = 0;
-            Btn_Help.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
-            Btn_Help.FlatStyle = FlatStyle.Flat;
-            Btn_Help.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
-            Btn_Help.ForeColor = Color.Cornsilk;
-            Btn_Help.Location = new Point(12, 245);
-            Btn_Help.Name = "Btn_Help";
-            Btn_Help.Size = new Size(192, 54);
-            Btn_Help.TabIndex = 5;
-            Btn_Help.Text = "ABOUT";
-            Btn_Help.UseVisualStyleBackColor = true;
-            Btn_Help.Click += Btn_Help_Click;
+            Btn_About.AutoSize = true;
+            Btn_About.Cursor = Cursors.Hand;
+            Btn_About.FlatAppearance.BorderColor = Color.White;
+            Btn_About.FlatAppearance.BorderSize = 0;
+            Btn_About.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
+            Btn_About.FlatStyle = FlatStyle.Flat;
+            Btn_About.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
+            Btn_About.ForeColor = Color.Cornsilk;
+            Btn_About.Location = new Point(12, 245);
+            Btn_About.Name = "Btn_About";
+            Btn_About.Size = new Size(192, 54);
+            Btn_About.TabIndex = 5;
+            Btn_About.Text = "ABOUT";
+            Btn_About.UseVisualStyleBackColor = true;
+            Btn_About.Click += Btn_Help_Click;
             // 
             // panel3
             // 
@@ -214,25 +214,25 @@
             Btn_Levels.Text = "NIVELES";
             Btn_Levels.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // Btn_Exit
             // 
-            pictureBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            pictureBox2.Cursor = Cursors.Hand;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 349);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(76, 54);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            Btn_Exit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Btn_Exit.Cursor = Cursors.Hand;
+            Btn_Exit.Image = (Image)resources.GetObject("Btn_Exit.Image");
+            Btn_Exit.Location = new Point(0, 349);
+            Btn_Exit.Name = "Btn_Exit";
+            Btn_Exit.Size = new Size(76, 54);
+            Btn_Exit.SizeMode = PictureBoxSizeMode.Zoom;
+            Btn_Exit.TabIndex = 0;
+            Btn_Exit.TabStop = false;
+            Btn_Exit.Click += pictureBox2_Click;
             // 
             // panel_Dynamic
             // 
             panel_Dynamic.AutoSize = true;
             panel_Dynamic.BackgroundImage = (Image)resources.GetObject("panel_Dynamic.BackgroundImage");
             panel_Dynamic.BackgroundImageLayout = ImageLayout.Stretch;
-            panel_Dynamic.Controls.Add(pictureBox1);
+            panel_Dynamic.Controls.Add(fondo_inicio);
             panel_Dynamic.Dock = DockStyle.Fill;
             panel_Dynamic.Location = new Point(200, 38);
             panel_Dynamic.Name = "panel_Dynamic";
@@ -240,13 +240,16 @@
             panel_Dynamic.TabIndex = 2;
             panel_Dynamic.Paint += panel_Dynamic_Paint;
             // 
-            // pictureBox1
+            // fondo_inicio
             // 
-            pictureBox1.Location = new Point(204, 44);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(389, 310);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            fondo_inicio.Dock = DockStyle.Fill;
+            fondo_inicio.Image = (Image)resources.GetObject("fondo_inicio.Image");
+            fondo_inicio.Location = new Point(0, 0);
+            fondo_inicio.Name = "fondo_inicio";
+            fondo_inicio.Size = new Size(743, 406);
+            fondo_inicio.SizeMode = PictureBoxSizeMode.StretchImage;
+            fondo_inicio.TabIndex = 0;
+            fondo_inicio.TabStop = false;
             // 
             // VentanaPrincipal
             // 
@@ -266,9 +269,9 @@
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
             panel_Dynamic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fondo_inicio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,16 +282,16 @@
         private Panel Menu;
         private Panel panel_Dynamic;
         private PictureBox Btn_Cerrar;
-        private PictureBox pictureBox2;
+        private PictureBox Btn_Exit;
         private PictureBox Btn_Minimizar;
         private PictureBox Btn_Restaurar;
         private PictureBox Btn_Maximizar;
         private Button Btn_Levels;
         private Panel panel2;
         private Panel panel4;
-        private Button Btn_Help;
+        private Button Btn_About;
         private Panel panel3;
         private Button Btn_Start;
-        private PictureBox pictureBox1;
+        private PictureBox fondo_inicio;
     }
 }

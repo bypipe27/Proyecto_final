@@ -16,7 +16,11 @@ namespace Proyecto_final
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("¿Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void Btn_Maximizar_Click_1(object sender, EventArgs e)
@@ -55,7 +59,7 @@ namespace Proyecto_final
         private void Form1_Load(object sender, EventArgs e)
         {
             // Cargar el GIF desde un archivo
-            pictureBox1.Image = Image.FromFile("C:\\Users\\San\\Documents\\GitHub\\Santiago-POO\\Proyecto_final\\Proyecto_final\\images\\Disparo_prueba_1.gif");
+            fondo_inicio.Image = Image.FromFile("C:\\Users\\San\\Documents\\GitHub\\Santiago-POO\\Proyecto_final\\Proyecto_final\\images\\Disparo_prueba_1.gif");
 
             // Alternativamente, cargar el GIF desde los recursos del proyecto
             // pictureBox1.Image = Properties.Resources.tu_gif;

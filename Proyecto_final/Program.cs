@@ -12,6 +12,7 @@ namespace Proyecto_final
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new VentanaPrincipal());
+            
         }
     }
 }
