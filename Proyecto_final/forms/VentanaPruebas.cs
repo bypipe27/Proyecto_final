@@ -22,13 +22,13 @@ namespace Proyecto_final.forms
         int coorActualNaveJugadorY;
         private NaveJugador naveJugador = new NaveJugador();
         List<PictureBox> disparosJugador = new List<PictureBox>();
-        Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>() {
+        Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>() 
+        {
                 { Keys.Right, false},
                 { Keys.Left, false},
                 { Keys.Up, false},
-                { Keys.Down, false},
-                { Keys.Space, false},
-            };
+                { Keys.Down, false}
+        };
 
         Image imgMunicionJugador;
         Size tamanoMunicionJug;
@@ -57,7 +57,7 @@ namespace Proyecto_final.forms
             imgMunicionJugador = naveJugador.tipoDeMunicion().Image;
             tamanoMunicionJug = naveJugador.tipoDeMunicion().Size;
 
-            timerFlujo.Start();
+            timerFlujoDisparos.Start();
             timerMovJugador.Start();
         }
 
@@ -76,7 +76,7 @@ namespace Proyecto_final.forms
 
         private void keyUpAction(object sender, KeyEventArgs e)
         {
-            if (Keys.Space == e.KeyCode)
+            if (e.KeyCode == Keys.S)
             {
                 PictureBox disparoJugador = new PictureBox()
                 {
@@ -93,6 +93,7 @@ namespace Proyecto_final.forms
                 disparoJugador.Visible = true;
                 disparosJugador.Add(disparoJugador);
                 this.Controls.Add(disparoJugador);
+                estadosTeclas[Keys.Space] = false;
             }
 
             if (e.KeyCode == Keys.Right ||
@@ -105,9 +106,9 @@ namespace Proyecto_final.forms
             
         }
 
-        private void flujoDeTrabajo(object sender, EventArgs e)
+        private void timerDisparos(object sender, EventArgs e)
         {
-            timerFlujo.Stop();
+            timerFlujoDisparos.Stop();
             for (int i = 0; i < disparosJugador.Count; i++)
             {
                 disparosJugador[i].Top -= naveJugador.velocidadMovNaveJugador()*5;
@@ -118,7 +119,7 @@ namespace Proyecto_final.forms
                     disparosJugador.Remove(disparosJugador[i]);
                 }
             }
-            timerFlujo.Enabled = true;
+            timerFlujoDisparos.Enabled = true;
         }
 
         private void timerFlujoDeMovJug(object sender, EventArgs e)

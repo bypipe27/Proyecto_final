@@ -34,7 +34,7 @@ namespace Proyecto_final.forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPruebas));
             fontDialog1 = new FontDialog();
             lblPuntaje = new Label();
-            timerFlujo = new System.Windows.Forms.Timer(components);
+            timerFlujoDisparos = new System.Windows.Forms.Timer(components);
             timerMovJugador = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
@@ -45,10 +45,10 @@ namespace Proyecto_final.forms
             lblPuntaje.ForeColor = SystemColors.MenuHighlight;
             lblPuntaje.Name = "lblPuntaje";
             // 
-            // timerFlujo
+            // timerFlujoDisparos
             // 
-            timerFlujo.Interval = 200;
-            timerFlujo.Tick += flujoDeTrabajo;
+            timerFlujoDisparos.Interval = 200;
+            timerFlujoDisparos.Tick += timerDisparos;
             // 
             // timerMovJugador
             // 
@@ -71,7 +71,7 @@ namespace Proyecto_final.forms
 
         private FontDialog fontDialog1;
         private Label lblPuntaje;
-        private System.Windows.Forms.Timer timerFlujo;
+        private System.Windows.Forms.Timer timerFlujoDisparos;
         private System.Windows.Forms.Timer timerMovJugador;
     }
 }
