@@ -36,6 +36,7 @@ namespace Proyecto_final.forms
             lblPuntaje = new Label();
             timerFlujoDisparos = new System.Windows.Forms.Timer(components);
             timerMovJugador = new System.Windows.Forms.Timer(components);
+            timerSpawnEnemigos = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblPuntaje
@@ -53,6 +54,11 @@ namespace Proyecto_final.forms
             // timerMovJugador
             // 
             timerMovJugador.Tick += timerFlujoDeMovJug;
+            // 
+            // timerSpawnEnemigos
+            // 
+            timerSpawnEnemigos.Interval = 2000;
+            timerSpawnEnemigos.Tick += TimerFlujoaparicionEnemigos;
             // 
             // VentanaPruebas
             // 
@@ -73,5 +79,6 @@ namespace Proyecto_final.forms
         private Label lblPuntaje;
         private System.Windows.Forms.Timer timerFlujoDisparos;
         private System.Windows.Forms.Timer timerMovJugador;
+        private System.Windows.Forms.Timer timerSpawnEnemigos;
     }
 }
