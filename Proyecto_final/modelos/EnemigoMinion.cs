@@ -10,12 +10,6 @@ namespace Proyecto_final.modelos
     {
         private String orientacionMov;
 
-        protected PictureBox imgMunicion = new PictureBox
-        {
-            Image = Image.FromFile("..\\..\\..\\recursos\\nave_boss1.png"),
-            Size = new System.Drawing.Size(10, 20)
-        };
-
         public EnemigoMinion() : base(
             Image.FromFile("..\\..\\..\\recursos\\nave_boss1.png"),
             80,
@@ -31,11 +25,6 @@ namespace Proyecto_final.modelos
         public int velocidadMinion()
         {
             return velMovimiento;
-        }
-
-        public PictureBox MunicionMinion()
-        {
-            return imgMunicion;
         }
 
         public void setOrientacionMov(String orientacionMov)

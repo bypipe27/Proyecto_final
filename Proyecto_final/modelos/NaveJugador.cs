@@ -8,11 +8,6 @@ namespace Proyecto_final.modelos
 {
     internal class NaveJugador : Nave
     {
-        protected PictureBox imgMunicion = new PictureBox
-        {
-            Image = Image.FromFile("..\\..\\..\\recursos\\nave_jugador.png"),
-            Size = new System.Drawing.Size(10, 20)
-        };
 
         public NaveJugador() : base(
             Image.FromFile("..\\..\\..\\recursos\\nave_jugador.png"),
@@ -31,9 +26,5 @@ namespace Proyecto_final.modelos
             return velMovimiento;
         }
 
-        public PictureBox tipoDeMunicion()
-        {
-            return imgMunicion;
-        }
     }
 }

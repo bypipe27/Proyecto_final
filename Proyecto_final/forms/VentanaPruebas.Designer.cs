@@ -37,6 +37,7 @@ namespace Proyecto_final.forms
             timerFlujoDisparos = new System.Windows.Forms.Timer(components);
             timerMovJugador = new System.Windows.Forms.Timer(components);
             timerSpawnEnemigos = new System.Windows.Forms.Timer(components);
+            timerGatilloMinions = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblPuntaje
@@ -53,12 +54,18 @@ namespace Proyecto_final.forms
             // 
             // timerMovJugador
             // 
+            timerMovJugador.Interval = 150;
             timerMovJugador.Tick += timerFlujoDeMovJug;
             // 
             // timerSpawnEnemigos
             // 
-            timerSpawnEnemigos.Interval = 2000;
+            timerSpawnEnemigos.Interval = 3000;
             timerSpawnEnemigos.Tick += TimerFlujoaparicionEnemigos;
+            // 
+            // timerGatilloMinions
+            // 
+            timerGatilloMinions.Interval = 700;
+            timerGatilloMinions.Tick += timerDisparoMinions;
             // 
             // VentanaPruebas
             // 
@@ -80,5 +87,6 @@ namespace Proyecto_final.forms
         private System.Windows.Forms.Timer timerFlujoDisparos;
         private System.Windows.Forms.Timer timerMovJugador;
         private System.Windows.Forms.Timer timerSpawnEnemigos;
+        private System.Windows.Forms.Timer timerGatilloMinions;
     }
 }

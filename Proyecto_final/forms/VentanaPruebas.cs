@@ -25,6 +25,7 @@ namespace Proyecto_final.forms
         int coorActualNaveJugadorY;
         private NaveJugador naveJugador = new NaveJugador();
         List<PictureBox> disparosJugador = new List<PictureBox>();
+        List<PictureBox> disparosEnemigos = new List<PictureBox>();
         Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>()
         {
                 { Keys.Right, false},
@@ -32,9 +33,6 @@ namespace Proyecto_final.forms
                 { Keys.Up, false},
                 { Keys.Down, false}
         };
-
-        Image imgMunicionJugador;
-        Size tamanoMunicionJug;
         Random rand = new Random();
 
 
@@ -58,19 +56,20 @@ namespace Proyecto_final.forms
                 naveJugador.establecerPosicion(JugadorPosInicialX, JugadorPosInicialY);
                 naveJugador.Visible = true;
                 this.Controls.Add(naveJugador);
-                imgMunicionJugador = naveJugador.tipoDeMunicion().Image;
-                tamanoMunicionJug = naveJugador.tipoDeMunicion().Size;
 
                 timerFlujoDisparos.Start();
                 timerMovJugador.Start();
                 timerSpawnEnemigos.Start();
-            } catch (Exception ex) { 
+                timerGatilloMinions.Start();
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.ToString());
             }
-            
 
 
-            
+
+
         }
 
         private void keyDownAction(object sender, KeyEventArgs e)
@@ -93,27 +92,21 @@ namespace Proyecto_final.forms
                 if (e.KeyCode == Keys.S &&
                     (disparosJugador.Count() == 0 ||
                         (disparosJugador.Count() > 0 &&
-                        disparosJugador[disparosJugador.Count() - 1].Bottom < (coorActualNaveJugadorY + imgMunicionJugador.Height))))
-            {
-                PictureBox disparoJugador = new PictureBox()
+                        disparosJugador[disparosJugador.Count() - 1].Bottom < (coorActualNaveJugadorY + MunicionJugador.getAlto()))))
                 {
-                    Image = imgMunicionJugador,
-                    Size = tamanoMunicionJug,
-                    SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
-                    TabIndex = 2,
-                    TabStop = false,
-                    Visible = false,
-                };
-                int disparoPosX = naveJugador.Location.X - disparoJugador.Width / 2 + naveJugador.Width / 2 + 1;
-                int disparoPosY = naveJugador.Location.Y + disparoJugador.Height;
+                    PictureBox disparoJugador = MunicionJugador.getMunicion();
+                    int disparoPosX = naveJugador.Location.X - disparoJugador.Width / 2 + naveJugador.Width / 2 + 1;
+                    int disparoPosY = naveJugador.Location.Y + disparoJugador.Height;
 
-                disparoJugador.Location = new System.Drawing.Point(disparoPosX, disparoPosY);
-                disparoJugador.Visible = true;
-                disparosJugador.Add(disparoJugador);
-                this.Controls.Add(disparoJugador);
-                estadosTeclas[Keys.Space] = false;
+                    disparoJugador.Location = new System.Drawing.Point(disparoPosX, disparoPosY);
+                    disparoJugador.Visible = true;
+                    disparosJugador.Add(disparoJugador);
+                    this.Controls.Add(disparoJugador);
+                    estadosTeclas[Keys.Space] = false;
+                }
             }
-            } catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.ToString());
             }
 
@@ -141,7 +134,8 @@ namespace Proyecto_final.forms
                     disparosJugador.Remove(disparosJugador[i]);
                 }
             }
-            timerFlujoDisparos.Enabled = true;
+
+                timerFlujoDisparos.Enabled = true;
         }
 
         private void timerFlujoDeMovJug(object sender, EventArgs e)
@@ -203,13 +197,24 @@ namespace Proyecto_final.forms
 
             }
 
+            for (int i = 0; i < disparosEnemigos.Count; i++)
+            {
+                disparosEnemigos[i].Top += 50;
+                if (disparosEnemigos[i].Bottom < 0)
+                {
+                    disparosEnemigos[i].Visible = false;
+                    this.Controls.Remove(disparosEnemigos[i]);
+                    disparosEnemigos.Remove(disparosEnemigos[i]);
+                }
+            }
+
             timerMovJugador.Enabled = true;
         }
 
         private void TimerFlujoaparicionEnemigos(object sender, EventArgs e)
         {
             timerSpawnEnemigos.Stop();
-            if(cntMinions > 0)
+            if (cntMinions > 0)
             {
                 EnemigoMinion enemigoMinion = new EnemigoMinion();
                 int minionPosInicialX = posicionAleatoriaX(enemigoMinion.Size.Width);
@@ -248,7 +253,8 @@ namespace Proyecto_final.forms
             {
                 double v = sizeW * 0.9;
                 return 0 - ((int)v);
-            }else if (posX >= anchoAreaTrabajo * 0.85)
+            }
+            else if (posX >= anchoAreaTrabajo * 0.85)
             {
                 double v = sizeW * 0.1;
                 return anchoAreaTrabajo - ((int)v);
@@ -257,21 +263,41 @@ namespace Proyecto_final.forms
             {
                 return posX;
             }
-        
 
-            
+
+
         }
 
         private int posicionAleatoriaY(int x)
         {
-            if(x <= anchoAreaTrabajo * 0.15 || x >= anchoAreaTrabajo * 0.85)
+            if (x <= anchoAreaTrabajo * 0.15 || x >= anchoAreaTrabajo * 0.85)
             {
-                return rand.Next(altoAreaTrabajo/2);
+                return rand.Next(altoAreaTrabajo / 2);
             }
             else
             {
                 return 0;
             }
+        }
+
+        private void timerDisparoMinions(object sender, EventArgs e)
+        {
+            timerGatilloMinions.Stop();
+
+            for (int i = 0; i < enemigosActivos.Count; i++)
+            {
+                PictureBox nuevoDisparoEnemigo = MunicionMinion.getMunicion();
+                int disparoPosX = enemigosActivos[i].Location.X - nuevoDisparoEnemigo.Width / 2 + enemigosActivos[i].Width / 2 + 1;
+                int disparoPosY = enemigosActivos[i].Location.Y + nuevoDisparoEnemigo.Height;
+
+                nuevoDisparoEnemigo.Location = new System.Drawing.Point(disparoPosX, disparoPosY);
+                nuevoDisparoEnemigo.Visible = true;
+                disparosEnemigos.Add(nuevoDisparoEnemigo);
+                this.Controls.Add(nuevoDisparoEnemigo);
+
+            }
+            timerGatilloMinions.Enabled = true;
+            
         }
     }
 }
