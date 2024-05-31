@@ -38,6 +38,8 @@ namespace Proyecto_final.forms
             timerMovJugador = new System.Windows.Forms.Timer(components);
             timerSpawnEnemigos = new System.Windows.Forms.Timer(components);
             timerGatilloMinions = new System.Windows.Forms.Timer(components);
+            lblVidas = new Label();
+            timerMovMinios = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblPuntaje
@@ -50,16 +52,15 @@ namespace Proyecto_final.forms
             // timerFlujoDisparos
             // 
             timerFlujoDisparos.Interval = 200;
-            timerFlujoDisparos.Tick += timerDisparos;
+            timerFlujoDisparos.Tick += timerDisparosJugador;
             // 
             // timerMovJugador
             // 
-            timerMovJugador.Interval = 150;
             timerMovJugador.Tick += timerFlujoDeMovJug;
             // 
             // timerSpawnEnemigos
             // 
-            timerSpawnEnemigos.Interval = 3000;
+            timerSpawnEnemigos.Interval = 1000;
             timerSpawnEnemigos.Tick += TimerFlujoaparicionEnemigos;
             // 
             // timerGatilloMinions
@@ -67,11 +68,24 @@ namespace Proyecto_final.forms
             timerGatilloMinions.Interval = 700;
             timerGatilloMinions.Tick += timerDisparoMinions;
             // 
+            // lblVidas
+            // 
+            resources.ApplyResources(lblVidas, "lblVidas");
+            lblVidas.BackColor = Color.Transparent;
+            lblVidas.ForeColor = SystemColors.MenuHighlight;
+            lblVidas.Name = "lblVidas";
+            // 
+            // timerMovMinios
+            // 
+            timerMovMinios.Interval = 200;
+            timerMovMinios.Tick += timerFlujoMovMinions;
+            // 
             // VentanaPruebas
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
+            Controls.Add(lblVidas);
             Controls.Add(lblPuntaje);
             Name = "VentanaPruebas";
             KeyDown += keyDownAction;
@@ -88,5 +102,7 @@ namespace Proyecto_final.forms
         private System.Windows.Forms.Timer timerMovJugador;
         private System.Windows.Forms.Timer timerSpawnEnemigos;
         private System.Windows.Forms.Timer timerGatilloMinions;
+        private Label lblVidas;
+        private System.Windows.Forms.Timer timerMovMinios;
     }
 }

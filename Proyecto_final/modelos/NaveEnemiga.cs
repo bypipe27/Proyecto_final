@@ -8,12 +8,13 @@ namespace Proyecto_final.modelos
 {
     internal class NaveEnemiga:Nave
     {
-        public NaveEnemiga(Image naveEnemiga, int Ancho, int alto, int vidas, int velocidad) : base(
+        public NaveEnemiga(Image naveEnemiga, int Ancho, int alto, int vidas, int velocidad, int puntos) : base(
            naveEnemiga,
            Ancho,
            alto,
            vidas,
-           velocidad)
+           velocidad,
+           puntos)
         {
         }
     }

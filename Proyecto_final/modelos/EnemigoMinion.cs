@@ -15,6 +15,7 @@ namespace Proyecto_final.modelos
             80,
             54,
             1,
+            10,
             10)
         {
             this.Name = "NaveMinion";
@@ -35,6 +36,11 @@ namespace Proyecto_final.modelos
         public String getOrientacionMov()
         {
             return orientacionMov;
+        }
+
+        public int getPuntos()
+        {
+            return puntos;
         }
     }
 }

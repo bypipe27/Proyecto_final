@@ -11,7 +11,9 @@ namespace Proyecto_final.modelos
         protected int vidas { get; set; }
         protected int velMovimiento { get; set; }
 
-        protected Nave(Image img, int medidaImgX, int medidaImgY, int vidas, int vel_mov)
+        protected int puntos { get; set; }
+
+        protected Nave(Image img, int medidaImgX, int medidaImgY, int vidas, int vel_mov, int puntos)
         {
 
             this.vidas = vidas;
@@ -24,6 +26,7 @@ namespace Proyecto_final.modelos
             this.TabIndex = 2;
             this.TabStop = false;
             this.Visible = false;
+            this.puntos = puntos;
         }
 
         public void establecerPosicion(int posicionX, int posicionY)

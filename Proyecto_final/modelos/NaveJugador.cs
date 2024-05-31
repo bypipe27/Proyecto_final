@@ -14,7 +14,8 @@ namespace Proyecto_final.modelos
             61,
             71,
             3,
-            10)
+            10,
+            0)
         {
             this.Name = "NaveJugador";
 
@@ -26,5 +27,24 @@ namespace Proyecto_final.modelos
             return velMovimiento;
         }
 
+        public void sumarPuntos(int puntos)
+        {
+            this.puntos += puntos;
+        }
+
+        public String getPuntos()
+        {
+            return puntos.ToString();
+        }
+
+        public int getVidas()
+        {
+            return this.vidas;
+        }
+
+        public void restarVida()
+        {
+            this.vidas--;
+        }
     }
 }

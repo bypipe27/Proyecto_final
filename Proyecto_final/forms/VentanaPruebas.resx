@@ -126,13 +126,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblPuntaje.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Bauhaus 93, 20pt</value>
+    <value>Bauhaus 93, 16pt</value>
   </data>
   <data name="lblPuntaje.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
+    <value>12, 39</value>
   </data>
   <data name="lblPuntaje.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 30</value>
+    <value>64, 25</value>
   </data>
   <data name="lblPuntaje.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -150,7 +150,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPuntaje.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="timerFlujoDisparos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>119, 23</value>
@@ -163,6 +163,43 @@
   </metadata>
   <metadata name="timerGatilloMinions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>589, 23</value>
+  </metadata>
+  <data name="lblVidas.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblVidas.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Bauhaus 93, 20pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblVidas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblVidas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
+  </data>
+  <data name="lblVidas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 30</value>
+  </data>
+  <data name="lblVidas.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblVidas.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="&gt;&gt;lblVidas.Name" xml:space="preserve">
+    <value>lblVidas</value>
+  </data>
+  <data name="&gt;&gt;lblVidas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblVidas.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblVidas.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="timerMovMinios.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>748, 23</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -185,7 +222,6 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>800, 500</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -220,6 +256,12 @@
     <value>timerGatilloMinions</value>
   </data>
   <data name="&gt;&gt;timerGatilloMinions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerMovMinios.Name" xml:space="preserve">
+    <value>timerMovMinios</value>
+  </data>
+  <data name="&gt;&gt;timerMovMinios.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
