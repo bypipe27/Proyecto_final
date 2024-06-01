@@ -44,6 +44,7 @@ namespace Proyecto_final.forms
             timerMovBoss = new System.Windows.Forms.Timer(components);
             timerGatilloBoss = new System.Windows.Forms.Timer(components);
             timerDisparosBoss = new System.Windows.Forms.Timer(components);
+            lblVidaBoss = new Label();
             SuspendLayout();
             // 
             // lblPuntaje
@@ -103,11 +104,19 @@ namespace Proyecto_final.forms
             timerDisparosBoss.Interval = 200;
             timerDisparosBoss.Tick += timerFlujoDisparosBoss;
             // 
+            // lblVidaBoss
+            // 
+            resources.ApplyResources(lblVidaBoss, "lblVidaBoss");
+            lblVidaBoss.BackColor = Color.Transparent;
+            lblVidaBoss.ForeColor = Color.Red;
+            lblVidaBoss.Name = "lblVidaBoss";
+            // 
             // VentanaPruebas
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
+            Controls.Add(lblVidaBoss);
             Controls.Add(lblVidas);
             Controls.Add(lblPuntaje);
             DoubleBuffered = true;
@@ -132,5 +141,6 @@ namespace Proyecto_final.forms
         private System.Windows.Forms.Timer timerGatilloBoss;
         private System.Windows.Forms.Timer timerMovBoss;
         private System.Windows.Forms.Timer timerDisparosBoss;
+        private Label lblVidaBoss;
     }
 }

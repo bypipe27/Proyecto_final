@@ -85,6 +85,12 @@ namespace Proyecto_final.forms
             lblPuntaje.Text = (naveJugador.getPuntos()).PadLeft(4, '0');
         }
 
+        private void actualizarVidaBoss()
+        {
+            int porcentajeVidaBoss = 100 * enemigoBoss.getVidas() / enemigoBoss.getVidaTotal();
+
+            lblVidaBoss.Text = "Boss: " + porcentajeVidaBoss.ToString() + "%";
+        }
         //Se captura los eventos referentes a cuando se presiona una tecla
         private void keyDownAction(object sender, KeyEventArgs e)
         {
@@ -393,8 +399,6 @@ namespace Proyecto_final.forms
         }
 
 
-
-
         //Resta la vida del jugador y lo elimina si llega a 0
         private void danoNaveJug()
         {
@@ -432,11 +436,12 @@ namespace Proyecto_final.forms
                 timerMovBoss.Start();
                 timerGatilloBoss.Start();
                 timerDisparosBoss.Start();
+                actualizarVidaBoss();
+                lblVidaBoss.Visible = true;
             }
 
         }
 
-        
         //Control de rafaga de la nave Boss
         private void timerAccionmientoDisparosBoss(object sender, EventArgs e)
         {
@@ -464,7 +469,7 @@ namespace Proyecto_final.forms
 
         }
         
-        //control del movimiento de los disparos
+        //control del movimiento de los disparos del Boss
         private void timerFlujoDisparosBoss(object sender, EventArgs e)
         {
             timerDisparosBoss.Stop();
@@ -542,6 +547,7 @@ namespace Proyecto_final.forms
                         this.Controls.Remove(disparosBoss[i][indice]);
                     }
                     disparosBoss.Remove(disparosBoss[i]);
+                    GC.Collect();
                 }
 
                 cntDisparosBossNoVisibles = 0;
@@ -569,6 +575,7 @@ namespace Proyecto_final.forms
                     naveJugador.sumarPuntos(enemigoBoss.getPuntos());
                     actualizarPuntaje();
                     enemigoBoss.restarVida();
+                    actualizarVidaBoss();
                     this.Controls.Remove(disparosJugador[i]);
                     disparosJugador.Remove(disparosJugador[i]);
                     break;

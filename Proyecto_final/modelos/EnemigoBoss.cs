@@ -8,12 +8,13 @@ namespace Proyecto_final.modelos
 {
     internal class EnemigoBoss : NaveEnemiga
     {
+        private static int vidaTotal = 10;
 
         public EnemigoBoss() : base(
             Image.FromFile("..\\..\\..\\Resources\\Nave_boss.png"),
             80,
             54,
-            10,
+            vidaTotal,
             20,
             10)
         {
@@ -28,6 +29,11 @@ namespace Proyecto_final.modelos
         public int getVidas()
         {
         return vidas; 
+        }
+
+        public int getVidaTotal()
+        {
+            return vidaTotal;
         }
 
         public void restarVida()
