@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,12 +29,14 @@ namespace Proyecto_final.forms
         List<PictureBox> disparosJugador = new List<PictureBox>();
         List<PictureBox> disparosEnemigos = new List<PictureBox>();
         List<List<PictureBox>> disparosBoss = new List<List<PictureBox>>();
+        HashSet<System.Windows.Forms.Timer> timers = new HashSet<System.Windows.Forms.Timer>();
         Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>()
         {
                 { Keys.Right, false},
                 { Keys.Left, false},
                 { Keys.Up, false},
-                { Keys.Down, false}
+                { Keys.Down, false},
+                { Keys.Space, false}
         };
         Random rand = new Random();
 
@@ -59,27 +62,25 @@ namespace Proyecto_final.forms
                 this.Controls.Add(naveJugador);
                 actualizarVidas();
 
+                intergrarTimer(timerFlujoDisparos);
+                intergrarTimer(timerMovJugador);
+                intergrarTimer(timerSpawnEnemigos);
+                intergrarTimer(timerGatilloMinions);
+                intergrarTimer(timerMovMiniosYDisp);
+                intergrarTimer(timergarbageCollector);
 
-                timerFlujoDisparos.Start();
-                timerMovJugador.Start();
-                timerSpawnEnemigos.Start();
-                timerGatilloMinions.Start();
-                timerMovMiniosYDisp.Start();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-
-
-
-
         }
 
         private void actualizarVidas()
         {
             lblVidas.Text = "Vidas: " + naveJugador.getVidas().ToString();
         }
+
         private void actualizarPuntaje()
         {
             lblPuntaje.Text = (naveJugador.getPuntos()).PadLeft(4, '0');
@@ -91,6 +92,7 @@ namespace Proyecto_final.forms
 
             lblVidaBoss.Text = "Boss: " + porcentajeVidaBoss.ToString() + "%";
         }
+
         //Se captura los eventos referentes a cuando se presiona una tecla
         private void keyDownAction(object sender, KeyEventArgs e)
         {
@@ -106,7 +108,6 @@ namespace Proyecto_final.forms
         }
 
         //Se captura los eventos referentes a cuando se suelta una tecla presionada
-
         private void keyUpAction(object sender, KeyEventArgs e)
         {
             try
@@ -126,7 +127,6 @@ namespace Proyecto_final.forms
                     disparoJugador.Visible = true;
                     disparosJugador.Add(disparoJugador);
                     this.Controls.Add(disparoJugador);
-                    estadosTeclas[Keys.Space] = false;
                 }
             }
             catch (Exception ex)
@@ -143,6 +143,21 @@ namespace Proyecto_final.forms
                 estadosTeclas[e.KeyCode] = false;
             }
 
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (estadosTeclas[Keys.Escape] == false) pausaJuego(true);
+                if (estadosTeclas[Keys.Escape] == true) pausaJuego(false);
+            }
+
+        }
+
+        private void pausaJuego(bool pausa)
+        {
+            estadosTeclas[Keys.Escape] = pausa;
+            if (pausa)
+            {
+
+            }
         }
 
         //Timer encargado de mover los disparos creados del jugador
@@ -154,12 +169,11 @@ namespace Proyecto_final.forms
                 disparosJugador[i].Top -= naveJugador.velocidadMovNaveJugador();
                 if (disparosJugador[i].Bottom < 0)
                 {
-                    this.Controls.Remove(disparosJugador[i]);
-                    disparosJugador.Remove(disparosJugador[i]);
+                    liberarRecursosProyectilJugador(disparosJugador[i]);
                 }
             }
 
-            timerFlujoDisparos.Enabled = true;
+            timerFlujoDisparos.Start();
         }
 
         //En este timer se controla el desplazamiento de la nave del jugador
@@ -184,7 +198,7 @@ namespace Proyecto_final.forms
 
             naveJugador.establecerPosicion(coorActualNaveJugadorX, coorActualNaveJugadorY);
 
-            timerMovJugador.Enabled = true;
+            timerMovJugador.Start();
         }
 
         //Aqui se controla la creacion de enemigos cada cierto tiempo e inicia la aparicion del boss
@@ -225,18 +239,17 @@ namespace Proyecto_final.forms
                 enemigoBoss.Location = new System.Drawing.Point(anchoAreaTrabajo / 2 - enemigoBoss.Width / 2, -enemigoBoss.Height);
                 enemigoBoss.Visible = true;
                 this.Controls.Add(enemigoBoss);
-                timerSpawnEnemigos.Enabled = false;
-                timerGatilloMinions.Enabled = false;
-                timerMovMiniosYDisp.Enabled = false;
-                timerMovInicialBoss.Start();
+
+                liberarTimer(timerSpawnEnemigos);
+                liberarTimer(timerGatilloMinions);
+                liberarTimer(timerMovMiniosYDisp);
+
+                intergrarTimer(timerMovInicialBoss);
             }
             else
             {
-
-                timerSpawnEnemigos.Enabled = true;
+                timerSpawnEnemigos.Start();
             }
-            GC.Collect();
-
         }
 
         //Determina la posicion aleatoria X del minion
@@ -258,9 +271,6 @@ namespace Proyecto_final.forms
             {
                 return posX;
             }
-
-
-
         }
         //Determina la posicion aleatoria Y del minion
         private int posicionAleatoriaAparicionMinionY(int x)
@@ -276,7 +286,7 @@ namespace Proyecto_final.forms
         }
 
         //Este timer esta encargado de crear los disparos de cada minion 
-        private void timerDisparoMinions(object sender, EventArgs e)
+        private void timerAccionamientoDisparoMinions(object sender, EventArgs e)
         {
             timerGatilloMinions.Stop();
 
@@ -290,13 +300,9 @@ namespace Proyecto_final.forms
                 nuevoDisparoEnemigo.Visible = true;
                 disparosEnemigos.Add(nuevoDisparoEnemigo);
                 this.Controls.Add(nuevoDisparoEnemigo);
-
             }
-
             timerGatilloMinions.Enabled = true;
-
         }
-
 
         //Timer que capta cuando un minion es impactado por un proyectil del jugador y la borra,
         //asi como si el minion colisiona con la nave del jugador.
@@ -315,8 +321,7 @@ namespace Proyecto_final.forms
                     if (minionsActivos[ind].Bounds.IntersectsWith(naveJugador.Bounds))
                     {
                         danoNaveJug();
-                        this.Controls.Remove(minionsActivos[ind]);
-                        minionsActivos.Remove(minionsActivos[ind]);
+                        liberarRecursosNaveMinios(minionsActivos[ind]);
                         break;
                     }
                     for (int j = 0; j < disparosJugador.Count; j++)
@@ -325,11 +330,8 @@ namespace Proyecto_final.forms
                         {
                             naveJugador.sumarPuntos(minionsActivos[ind].getPuntos());
                             actualizarPuntaje();
-
-                            this.Controls.Remove(minionsActivos[ind]);
-                            minionsActivos.Remove(minionsActivos[ind]);
-                            this.Controls.Remove(disparosJugador[j]);
-                            disparosJugador.Remove(disparosJugador[j]);
+                            liberarRecursosNaveMinios(minionsActivos[ind]);
+                            liberarRecursosProyectilJugador(disparosJugador[j]);
                             break;
                         }
                     }
@@ -342,15 +344,12 @@ namespace Proyecto_final.forms
                     String orientacion = minionsActivos[i].getOrientacionMov();
                     int velocidad = minionsActivos[i].velocidadMinion();
 
-
-
                     if (orientacion == Direcciones.Opciones.IZQ.ToString())
                     {
                         minionsActivos[i].Left -= velocidad;
                         if (minionsActivos[i].Right <= 0)
                         {
-                            this.Controls.Remove(minionsActivos[i]);
-                            minionsActivos.Remove(minionsActivos[i]);
+                            liberarRecursosNaveMinios(minionsActivos[i]);
                         }
                         continue;
                     }
@@ -359,8 +358,7 @@ namespace Proyecto_final.forms
                         minionsActivos[i].Left += velocidad;
                         if (minionsActivos[i].Left >= anchoAreaTrabajo)
                         {
-                            this.Controls.Remove(minionsActivos[i]);
-                            minionsActivos.Remove(minionsActivos[i]);
+                            liberarRecursosNaveMinios(minionsActivos[i]);
                         }
                         continue;
                     }
@@ -369,15 +367,13 @@ namespace Proyecto_final.forms
                         minionsActivos[i].Top += velocidad;
                         if (minionsActivos[i].Top >= altoAreaTrabajo)
                         {
-
-                            this.Controls.Remove(minionsActivos[i]);
-                            minionsActivos.Remove(minionsActivos[i]);
+                            liberarRecursosNaveMinios(minionsActivos[i]);
                         }
                         continue;
                     }
 
-
                 }
+
                 //control movimiento proyectiles enemigos y su colision con nave jugador
                 for (int i = 0; i < disparosEnemigos.Count; i++)
                 {
@@ -386,19 +382,62 @@ namespace Proyecto_final.forms
                     if (disparosEnemigos[i].Top > altoAreaTrabajo || colision)
                     {
                         if (colision) danoNaveJug();
-
-                        this.Controls.Remove(disparosEnemigos[i]);
-                        disparosEnemigos.Remove(disparosEnemigos[i]);
+                        liberarRecursosProyectilMinios(disparosEnemigos[i]);
                     }
 
-
                 }
-
-                timerMovMiniosYDisp.Enabled = true;
+                timerMovMiniosYDisp.Start();
             }
         }
 
+        private void liberarRecursosProyectilJugador(PictureBox proyectilJugador)
+        {
+            proyectilJugador.Dispose();
+            this.Controls.Remove(proyectilJugador);
+            disparosJugador.Remove(proyectilJugador);
+        }
 
+        private void liberarRecursosNaveMinios(EnemigoMinion enemigoMinion)
+        {
+            enemigoMinion.Dispose();
+            this.Controls.Remove(enemigoMinion);
+            minionsActivos.Remove(enemigoMinion);
+        }
+
+        private void liberarRecursosProyectilMinios(PictureBox pryectilMinion)
+        {
+            pryectilMinion.Dispose();
+            this.Controls.Remove(pryectilMinion);
+            disparosEnemigos.Remove(pryectilMinion);
+        }
+
+        private void liberarRecursosProyectilBoss(List<PictureBox> proyectilBoss, int cntDisparosBoss)
+        {
+            for (int indice = 0; indice < cntDisparosBoss; indice++)
+            {
+                proyectilBoss[indice].Dispose();
+                this.Controls.Remove(proyectilBoss[indice]);
+            }
+            disparosBoss.Remove(proyectilBoss);
+        }
+
+        private void liberarRecursosNaveBoss(EnemigoBoss enemigoBoss)
+        {
+            enemigoBoss.Dispose();
+            this.Controls.Remove(enemigoBoss);
+        }
+
+        private void intergrarTimer(System.Windows.Forms.Timer timer)
+        {
+            timers.Add(timer);
+            timer.Start();
+        }
+        private void liberarTimer(System.Windows.Forms.Timer timer)
+        {
+            timer.Enabled = false;
+            timers.Remove(timer);
+            timer.Dispose();
+        }
         //Resta la vida del jugador y lo elimina si llega a 0
         private void danoNaveJug()
         {
@@ -410,12 +449,14 @@ namespace Proyecto_final.forms
                 naveJugador.Location = new Point(-naveJugador.Width, -naveJugador.Height);
                 naveJugador.Visible = false;
                 this.Controls.Remove(naveJugador);
-                timerGatilloMinions.Enabled = false;
-                timerMovMiniosYDisp.Enabled = false;
-                timerFlujoDisparos.Enabled = false;
-                timerSpawnEnemigos.Enabled = false;
+                naveJugador.Dispose();
+                foreach (System.Windows.Forms.Timer timer in timers)
+                {
+                    timer.Enabled = false;
+                    timer.Dispose();
+                    timers.Remove(timer);
+                }
                 this.Controls.Clear();
-                GC.Collect();
             }
 
         }
@@ -428,18 +469,19 @@ namespace Proyecto_final.forms
             if (enemigoBoss.Bottom < altoAreaTrabajo / 2)
             {
                 enemigoBoss.Top += enemigoBoss.velocidadBoss();
-                timerMovInicialBoss.Enabled = true;
+                timerMovInicialBoss.Start();
             }
             else
             {
-                timerMovInicialBoss.Enabled = false;
-                timerMovBoss.Start();
-                timerGatilloBoss.Start();
-                timerDisparosBoss.Start();
+                liberarTimer(timerMovInicialBoss);
+
+                intergrarTimer(timerMovBoss);
+                intergrarTimer(timerGatilloBoss);
+                intergrarTimer(timerDisparosBoss);
+
                 actualizarVidaBoss();
                 lblVidaBoss.Visible = true;
             }
-
         }
 
         //Control de rafaga de la nave Boss
@@ -457,23 +499,21 @@ namespace Proyecto_final.forms
                 this.Controls.Add(disparosBoss[posUltimaRafaga][k]);
             }
 
-
             if (enemigoBoss.getVidas() == 0 || naveJugador.getVidas() == 0)
             {
-                timerGatilloBoss.Enabled = false;
+                liberarTimer(timerGatilloBoss);
             }
             else
             {
-                timerGatilloBoss.Enabled = true;
+                timerGatilloBoss.Start();
             }
-
         }
-        
+
         //control del movimiento de los disparos del Boss
         private void timerFlujoDisparosBoss(object sender, EventArgs e)
         {
             timerDisparosBoss.Stop();
-                        
+
             int velocidadBoss = enemigoBoss.velocidadBoss();
             int cntDisparosBossNoVisibles = 0;
 
@@ -519,18 +559,20 @@ namespace Proyecto_final.forms
                                 break;
                         }
 
-                        if (disparosBoss[i][j].Left == anchoAreaTrabajo ||
-                        disparosBoss[i][j].Right == 0 ||
-                        disparosBoss[i][j].Bottom == altoAreaTrabajo ||
-                        disparosBoss[i][j].Top == 0)
+                        if (disparosBoss[i][j].Left >= anchoAreaTrabajo ||
+                        disparosBoss[i][j].Right <= 0 ||
+                        disparosBoss[i][j].Top >= altoAreaTrabajo ||
+                        disparosBoss[i][j].Bottom <= 0)
                         {
                             disparosBoss[i][j].Visible = false;
+                            cntDisparosBossNoVisibles++;
                         }
 
                         if (naveJugador.Bounds.IntersectsWith(disparosBoss[i][j].Bounds))
                         {
                             danoNaveJug();
                             disparosBoss[i][j].Visible = false;
+                            cntDisparosBossNoVisibles++;
                         }
                     }
                     else
@@ -542,18 +584,19 @@ namespace Proyecto_final.forms
 
                 if (cntDisparosBossNoVisibles == municionBoss.getCntDisparos())
                 {
-                    for (int indice = 0; indice < cntDisparosBossNoVisibles; indice++)
-                    {
-                        this.Controls.Remove(disparosBoss[i][indice]);
-                    }
-                    disparosBoss.Remove(disparosBoss[i]);
-                    GC.Collect();
+                    liberarRecursosProyectilBoss(disparosBoss[i], municionBoss.getCntDisparos());
                 }
 
                 cntDisparosBossNoVisibles = 0;
             }
-            timerDisparosBoss.Enabled = true;
-            
+            if (disparosBoss.Count == 0 && enemigoBoss.getVidas() == 0)
+            {
+                liberarTimer(timerDisparosBoss);
+            }
+            else
+            {
+                timerDisparosBoss.Start();
+            }
         }
 
         //Se controla flujo de movimiento del boss y su colision con diparos y nave del jugador
@@ -565,34 +608,27 @@ namespace Proyecto_final.forms
 
             if (enemigoBoss.Bounds.IntersectsWith(naveJugador.Bounds)) danoNaveJug();
 
-
             for (int i = 0; i < disparosJugador.Count; i++)
             {
-
-                if (disparosJugador[i].Top <= enemigoBoss.Bottom && disparosJugador[i].Top >= enemigoBoss.Top)
+                if (disparosJugador[i].Bounds.IntersectsWith(enemigoBoss.Bounds))
                 {
-
                     naveJugador.sumarPuntos(enemigoBoss.getPuntos());
                     actualizarPuntaje();
                     enemigoBoss.restarVida();
                     actualizarVidaBoss();
-                    this.Controls.Remove(disparosJugador[i]);
-                    disparosJugador.Remove(disparosJugador[i]);
+                    liberarRecursosProyectilJugador(disparosJugador[i]);
                     break;
-
                 }
             }
 
-
             if (enemigoBoss.getVidas() == 0)
             {
-                this.Controls.Remove(enemigoBoss);
-                timerMovBoss.Enabled = false;
+                liberarRecursosNaveBoss(enemigoBoss);
+                liberarTimer(timerMovBoss);
             }
             else
             {
-                
-                timerMovBoss.Enabled = true;
+                timerMovBoss.Start();
             }
 
         }
@@ -621,7 +657,13 @@ namespace Proyecto_final.forms
 
         }
 
-        
+        private void accionamientoGarbageCollector(object sender, EventArgs e)
+        {
+            timergarbageCollector.Stop();
+            GC.Collect();
+            timergarbageCollector.Start();
+        }
+
 
     }
 }
