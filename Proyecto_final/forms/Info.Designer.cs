@@ -29,47 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info));
-            Btn_Return = new PictureBox();
             lbl_InfoObjetivo = new Label();
             lbl_InfoComandos = new Label();
             lbl_Comandos = new Label();
             lbl_Objetivo = new Label();
             lbl_About = new Label();
-            ((System.ComponentModel.ISupportInitialize)Btn_Return).BeginInit();
             SuspendLayout();
-            // 
-            // Btn_Return
-            // 
-            Btn_Return.Cursor = Cursors.Hand;
-            Btn_Return.Image = (Image)resources.GetObject("Btn_Return.Image");
-            Btn_Return.Location = new Point(690, 363);
-            Btn_Return.Name = "Btn_Return";
-            Btn_Return.Size = new Size(83, 70);
-            Btn_Return.SizeMode = PictureBoxSizeMode.Zoom;
-            Btn_Return.TabIndex = 12;
-            Btn_Return.TabStop = false;
-            Btn_Return.Click += this.Btn_Return_Click;
             // 
             // lbl_InfoObjetivo
             // 
             lbl_InfoObjetivo.AutoSize = true;
-            lbl_InfoObjetivo.Font = new Font("Segoe UI", 10F);
+            lbl_InfoObjetivo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_InfoObjetivo.ForeColor = SystemColors.ControlLightLight;
-            lbl_InfoObjetivo.Location = new Point(162, 139);
+            lbl_InfoObjetivo.Location = new Point(187, 142);
             lbl_InfoObjetivo.Name = "lbl_InfoObjetivo";
-            lbl_InfoObjetivo.Size = new Size(572, 95);
+            lbl_InfoObjetivo.Size = new Size(492, 75);
             lbl_InfoObjetivo.TabIndex = 11;
             lbl_InfoObjetivo.Text = resources.GetString("lbl_InfoObjetivo.Text");
             // 
             // lbl_InfoComandos
             // 
             lbl_InfoComandos.AutoSize = true;
-            lbl_InfoComandos.Font = new Font("Segoe UI", 10F);
+            lbl_InfoComandos.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_InfoComandos.ForeColor = SystemColors.ControlLightLight;
-            lbl_InfoComandos.Location = new Point(162, 310);
+            lbl_InfoComandos.Location = new Point(187, 263);
             lbl_InfoComandos.Name = "lbl_InfoComandos";
-            lbl_InfoComandos.Size = new Size(436, 114);
-            lbl_InfoComandos.TabIndex = 10;
+            lbl_InfoComandos.Size = new Size(374, 90);
+            lbl_InfoComandos.TabIndex = 9;
             lbl_InfoComandos.Text = resources.GetString("lbl_InfoComandos.Text");
             // 
             // lbl_Comandos
@@ -77,7 +63,7 @@
             lbl_Comandos.AutoSize = true;
             lbl_Comandos.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lbl_Comandos.ForeColor = Color.DarkOrange;
-            lbl_Comandos.Location = new Point(28, 263);
+            lbl_Comandos.Location = new Point(28, 245);
             lbl_Comandos.Name = "lbl_Comandos";
             lbl_Comandos.Size = new Size(153, 37);
             lbl_Comandos.TabIndex = 9;
@@ -88,7 +74,7 @@
             lbl_Objetivo.AutoSize = true;
             lbl_Objetivo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lbl_Objetivo.ForeColor = Color.DarkOrange;
-            lbl_Objetivo.Location = new Point(28, 102);
+            lbl_Objetivo.Location = new Point(28, 124);
             lbl_Objetivo.Name = "lbl_Objetivo";
             lbl_Objetivo.Size = new Size(128, 37);
             lbl_Objetivo.TabIndex = 8;
@@ -109,9 +95,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.FromArgb(29, 32, 40);
-            ClientSize = new Size(800, 450);
-            Controls.Add(Btn_Return);
+            ClientSize = new Size(743, 406);
             Controls.Add(lbl_InfoObjetivo);
             Controls.Add(lbl_InfoComandos);
             Controls.Add(lbl_Comandos);
@@ -120,14 +106,11 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Info";
             Text = "Info";
-            ((System.ComponentModel.ISupportInitialize)Btn_Return).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox Btn_Return;
         private Label lbl_InfoObjetivo;
         private Label lbl_InfoComandos;
         private Label lbl_Comandos;

@@ -35,6 +35,7 @@
             Btn_Minimizar = new PictureBox();
             Btn_Cerrar = new PictureBox();
             Menu = new Panel();
+            Btn_Inicio = new PictureBox();
             panel4 = new Panel();
             Btn_About = new Button();
             panel3 = new Panel();
@@ -42,19 +43,15 @@
             panel2 = new Panel();
             Btn_Levels = new Button();
             Btn_Exit = new PictureBox();
-            panel_Dynamic = new Panel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            logo_juego = new Panel();
             BarraTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Restaurar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Maximizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).BeginInit();
             Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Btn_Inicio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Exit).BeginInit();
-            panel_Dynamic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // BarraTitle
@@ -126,6 +123,7 @@
             // Menu
             // 
             Menu.BackColor = Color.FromArgb(29, 32, 40);
+            Menu.Controls.Add(Btn_Inicio);
             Menu.Controls.Add(panel4);
             Menu.Controls.Add(Btn_About);
             Menu.Controls.Add(panel3);
@@ -139,6 +137,18 @@
             Menu.Size = new Size(200, 406);
             Menu.TabIndex = 1;
             Menu.Paint += Menu_Paint;
+            // 
+            // Btn_Inicio
+            // 
+            Btn_Inicio.Cursor = Cursors.Hand;
+            Btn_Inicio.Image = (Image)resources.GetObject("Btn_Inicio.Image");
+            Btn_Inicio.Location = new Point(3, 6);
+            Btn_Inicio.Name = "Btn_Inicio";
+            Btn_Inicio.Size = new Size(191, 97);
+            Btn_Inicio.SizeMode = PictureBoxSizeMode.Zoom;
+            Btn_Inicio.TabIndex = 10;
+            Btn_Inicio.TabStop = false;
+            Btn_Inicio.Click += pictureBox2_Click_1;
             // 
             // panel4
             // 
@@ -215,6 +225,7 @@
             Btn_Levels.TabIndex = 1;
             Btn_Levels.Text = "NIVELES";
             Btn_Levels.UseVisualStyleBackColor = true;
+            Btn_Levels.Click += Btn_Levels_Click;
             // 
             // Btn_Exit
             // 
@@ -229,51 +240,24 @@
             Btn_Exit.TabStop = false;
             Btn_Exit.Click += pictureBox2_Click;
             // 
-            // panel_Dynamic
+            // logo_juego
             // 
-            panel_Dynamic.AutoSize = true;
-            panel_Dynamic.BackColor = Color.Transparent;
-            panel_Dynamic.BackgroundImage = (Image)resources.GetObject("panel_Dynamic.BackgroundImage");
-            panel_Dynamic.BackgroundImageLayout = ImageLayout.Stretch;
-            panel_Dynamic.Controls.Add(pictureBox1);
-            panel_Dynamic.Controls.Add(pictureBox2);
-            panel_Dynamic.Dock = DockStyle.Fill;
-            panel_Dynamic.Location = new Point(200, 38);
-            panel_Dynamic.Name = "panel_Dynamic";
-            panel_Dynamic.Size = new Size(743, 406);
-            panel_Dynamic.TabIndex = 2;
-            panel_Dynamic.Paint += panel_Dynamic_Paint;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(286, 30);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(307, 143);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(743, 406);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 8;
-            pictureBox2.TabStop = false;
+            logo_juego.AutoSize = true;
+            logo_juego.BackColor = Color.FromArgb(29, 32, 40);
+            logo_juego.BackgroundImageLayout = ImageLayout.Stretch;
+            logo_juego.Dock = DockStyle.Fill;
+            logo_juego.Location = new Point(200, 38);
+            logo_juego.Name = "logo_juego";
+            logo_juego.Size = new Size(743, 406);
+            logo_juego.TabIndex = 2;
+            logo_juego.Paint += panel_Dynamic_Paint;
             // 
             // VentanaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(943, 444);
-            Controls.Add(panel_Dynamic);
+            Controls.Add(logo_juego);
             Controls.Add(Menu);
             Controls.Add(BarraTitle);
             FormBorderStyle = FormBorderStyle.None;
@@ -286,10 +270,8 @@
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Btn_Inicio).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
-            panel_Dynamic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,7 +280,7 @@
 
         private Panel BarraTitle;
         private Panel Menu;
-        private Panel panel_Dynamic;
+        private Panel logo_juego;
         private PictureBox Btn_Cerrar;
         private PictureBox Btn_Exit;
         private PictureBox Btn_Minimizar;
@@ -310,7 +292,6 @@
         private Button Btn_About;
         private Panel panel3;
         private Button Btn_Start;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox Btn_Inicio;
     }
 }

@@ -9,6 +9,31 @@ namespace Proyecto_final
             InitializeComponent();
         }
 
+
+
+        private void abrirForm(object formhija)
+        {
+            if (this.logo_juego.Controls.Count > 0)
+            {
+                this.logo_juego.Controls.RemoveAt(0);
+                Form form = formhija as Form;
+                form.TopLevel = false;
+                form.Dock = DockStyle.Fill;
+                this.logo_juego.Controls.Add(form);
+                this.logo_juego.Tag = form;
+                form.Show();
+            }
+            else if (this.logo_juego.Controls.Count == 0)
+            {
+                Form form = formhija as Form;
+                form.TopLevel = false;
+                form.Dock = DockStyle.Fill;
+                this.logo_juego.Controls.Add(form);
+                this.logo_juego.Tag = form;
+                form.Show();
+            }
+        }
+
         private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -49,17 +74,24 @@ namespace Proyecto_final
 
         private void Btn_Help_Click(object sender, EventArgs e)
         {
-            Info formAbout = new Info();
-            //  Mostrar la forma
-            formAbout.Show();
-            //  Mostrar la forma modal
+            abrirForm(new Info());
+            //Info formAbout = new Info();
             //formAbout.ShowDialog();
         }
 
         private void panel_Dynamic_Paint(object sender, PaintEventArgs e)
         {
-            
+            //pictureBox2_Click_1(null, e);
         }
-        
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            abrirForm(new inicio());
+        }
+
+        private void Btn_Levels_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
