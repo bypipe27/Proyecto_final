@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPrincipal));
             BarraTitle = new Panel();
             Btn_Restaurar = new PictureBox();
             Btn_Maximizar = new PictureBox();
@@ -71,7 +70,7 @@
             // 
             Btn_Restaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Restaurar.Cursor = Cursors.Hand;
-            Btn_Restaurar.Image = (Image)resources.GetObject("Btn_Restaurar.Image");
+            Btn_Restaurar.Image = Properties.Resources.restaurar;
             Btn_Restaurar.Location = new Point(875, 7);
             Btn_Restaurar.Name = "Btn_Restaurar";
             Btn_Restaurar.Size = new Size(25, 25);
@@ -85,7 +84,7 @@
             // 
             Btn_Maximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Maximizar.Cursor = Cursors.Hand;
-            Btn_Maximizar.Image = (Image)resources.GetObject("Btn_Maximizar.Image");
+            Btn_Maximizar.Image = Properties.Resources.maximizar;
             Btn_Maximizar.Location = new Point(875, 7);
             Btn_Maximizar.Name = "Btn_Maximizar";
             Btn_Maximizar.Size = new Size(25, 25);
@@ -98,7 +97,7 @@
             // 
             Btn_Minimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Minimizar.Cursor = Cursors.Hand;
-            Btn_Minimizar.Image = (Image)resources.GetObject("Btn_Minimizar.Image");
+            Btn_Minimizar.Image = Properties.Resources.minimizar;
             Btn_Minimizar.Location = new Point(844, 7);
             Btn_Minimizar.Name = "Btn_Minimizar";
             Btn_Minimizar.Size = new Size(25, 25);
@@ -111,7 +110,7 @@
             // 
             Btn_Cerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Cerrar.Cursor = Cursors.Hand;
-            Btn_Cerrar.Image = (Image)resources.GetObject("Btn_Cerrar.Image");
+            Btn_Cerrar.Image = Properties.Resources.boton_cerrar;
             Btn_Cerrar.Location = new Point(906, 7);
             Btn_Cerrar.Name = "Btn_Cerrar";
             Btn_Cerrar.Size = new Size(25, 25);
@@ -141,7 +140,7 @@
             // Btn_Inicio
             // 
             Btn_Inicio.Cursor = Cursors.Hand;
-            Btn_Inicio.Image = (Image)resources.GetObject("Btn_Inicio.Image");
+            Btn_Inicio.Image = Properties.Resources.nave_inicio;
             Btn_Inicio.Location = new Point(3, 6);
             Btn_Inicio.Name = "Btn_Inicio";
             Btn_Inicio.Size = new Size(191, 97);
@@ -231,7 +230,7 @@
             // 
             Btn_Exit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             Btn_Exit.Cursor = Cursors.Hand;
-            Btn_Exit.Image = (Image)resources.GetObject("Btn_Exit.Image");
+            Btn_Exit.Image = Properties.Resources.boton_salir;
             Btn_Exit.Location = new Point(0, 349);
             Btn_Exit.Name = "Btn_Exit";
             Btn_Exit.Size = new Size(76, 54);
