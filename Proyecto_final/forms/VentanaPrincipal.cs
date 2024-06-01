@@ -49,7 +49,11 @@ namespace Proyecto_final
 
         private void Btn_Help_Click(object sender, EventArgs e)
         {
-
+            Info formAbout = new Info();
+            //  Mostrar la forma
+            formAbout.Show();
+            //  Mostrar la forma modal
+            //formAbout.ShowDialog();
         }
 
         private void panel_Dynamic_Paint(object sender, PaintEventArgs e)

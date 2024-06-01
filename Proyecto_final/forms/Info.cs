@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proyecto_final.forms
+namespace Proyecto_final
 {
-    public partial class About : Form
+    public partial class Info : Form
     {
-        public About()
+        public Info()
         {
             InitializeComponent();
+        }
+
+        private void Btn_Return_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
