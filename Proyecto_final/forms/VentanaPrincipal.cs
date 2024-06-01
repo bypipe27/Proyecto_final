@@ -81,7 +81,7 @@ namespace Proyecto_final
 
         private void panel_Dynamic_Paint(object sender, PaintEventArgs e)
         {
-            //pictureBox2_Click_1(null, e);
+            
         }
 
         private void pictureBox2_Click_1(object sender, EventArgs e)
