@@ -43,7 +43,8 @@
             Btn_Levels = new Button();
             Btn_Exit = new PictureBox();
             panel_Dynamic = new Panel();
-            fondo_inicio = new PictureBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             BarraTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Restaurar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Maximizar).BeginInit();
@@ -52,7 +53,8 @@
             Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Exit).BeginInit();
             panel_Dynamic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)fondo_inicio).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // BarraTitle
@@ -230,9 +232,11 @@
             // panel_Dynamic
             // 
             panel_Dynamic.AutoSize = true;
+            panel_Dynamic.BackColor = Color.Transparent;
             panel_Dynamic.BackgroundImage = (Image)resources.GetObject("panel_Dynamic.BackgroundImage");
             panel_Dynamic.BackgroundImageLayout = ImageLayout.Stretch;
-            panel_Dynamic.Controls.Add(fondo_inicio);
+            panel_Dynamic.Controls.Add(pictureBox1);
+            panel_Dynamic.Controls.Add(pictureBox2);
             panel_Dynamic.Dock = DockStyle.Fill;
             panel_Dynamic.Location = new Point(200, 38);
             panel_Dynamic.Name = "panel_Dynamic";
@@ -240,16 +244,29 @@
             panel_Dynamic.TabIndex = 2;
             panel_Dynamic.Paint += panel_Dynamic_Paint;
             // 
-            // fondo_inicio
+            // pictureBox1
             // 
-            fondo_inicio.Dock = DockStyle.Fill;
-            fondo_inicio.Image = (Image)resources.GetObject("fondo_inicio.Image");
-            fondo_inicio.Location = new Point(0, 0);
-            fondo_inicio.Name = "fondo_inicio";
-            fondo_inicio.Size = new Size(743, 406);
-            fondo_inicio.SizeMode = PictureBoxSizeMode.StretchImage;
-            fondo_inicio.TabIndex = 0;
-            fondo_inicio.TabStop = false;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(286, 30);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(307, 143);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(743, 406);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
             // 
             // VentanaPrincipal
             // 
@@ -271,7 +288,8 @@
             Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
             panel_Dynamic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)fondo_inicio).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -292,6 +310,7 @@
         private Button Btn_About;
         private Panel panel3;
         private Button Btn_Start;
-        private PictureBox fondo_inicio;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
