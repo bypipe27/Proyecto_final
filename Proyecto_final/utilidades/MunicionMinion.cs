@@ -8,19 +8,20 @@ namespace Proyecto_final.utilidades
 {
     public static class MunicionMinion
     {
-        static int ancho = 10;
-        static int alto = 20;
+        static int ancho = 15;
+        static int alto = 25;
         
         public static PictureBox getMunicion()
         {
             PictureBox municion = new PictureBox
             {
-                Image = Image.FromFile("..\\..\\..\\recursos\\nave_boss1.png"),
+                Image = Image.FromFile("..\\..\\..\\Resources\\disparo_minion.png"),
                 Size = new System.Drawing.Size(ancho,alto),
                 SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
                 TabIndex = 2,
                 TabStop = false,
-                Visible = false
+                Visible = false,
+                BackColor = System.Drawing.Color.Transparent
             };
             return municion;
         }

@@ -10,7 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="recursos\" />
+    <Compile Remove="recursos\**" />
+    <EmbeddedResource Remove="recursos\**" />
+    <None Remove="recursos\**" />
   </ItemGroup>
 
   <ItemGroup>

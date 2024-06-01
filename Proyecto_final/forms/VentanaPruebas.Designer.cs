@@ -39,10 +39,11 @@ namespace Proyecto_final.forms
             timerSpawnEnemigos = new System.Windows.Forms.Timer(components);
             timerGatilloMinions = new System.Windows.Forms.Timer(components);
             lblVidas = new Label();
-            timerMovMinios = new System.Windows.Forms.Timer(components);
+            timerMovMiniosYDisp = new System.Windows.Forms.Timer(components);
             timerMovInicialBoss = new System.Windows.Forms.Timer(components);
             timerMovBoss = new System.Windows.Forms.Timer(components);
             timerGatilloBoss = new System.Windows.Forms.Timer(components);
+            timerDisparosBoss = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblPuntaje
@@ -78,14 +79,13 @@ namespace Proyecto_final.forms
             lblVidas.ForeColor = SystemColors.MenuHighlight;
             lblVidas.Name = "lblVidas";
             // 
-            // timerMovMinios
+            // timerMovMiniosYDisp
             // 
-            timerMovMinios.Interval = 200;
-            timerMovMinios.Tick += timerFlujoMovMinionsYProyectiles;
+            timerMovMiniosYDisp.Interval = 200;
+            timerMovMiniosYDisp.Tick += timerFlujoMovMinionsYProyectiles;
             // 
             // timerMovInicialBoss
             // 
-            timerMovInicialBoss.Interval = 200;
             timerMovInicialBoss.Tick += timerFlujoInicialMovBoss;
             // 
             // timerMovBoss
@@ -95,15 +95,19 @@ namespace Proyecto_final.forms
             // 
             // timerGatilloBoss
             // 
-            timerGatilloBoss.Interval = 500;
-            timerGatilloBoss.Tick += timerFlujoDisparosBoss;
+            timerGatilloBoss.Interval = 1500;
+            timerGatilloBoss.Tick += timerAccionmientoDisparosBoss;
+            // 
+            // timerDisparosBoss
+            // 
+            timerDisparosBoss.Interval = 200;
+            timerDisparosBoss.Tick += timerFlujoDisparosBoss;
             // 
             // VentanaPruebas
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            BackgroundImage = Properties.Resources.fondo_cielo;
             Controls.Add(lblVidas);
             Controls.Add(lblPuntaje);
             DoubleBuffered = true;
@@ -123,9 +127,10 @@ namespace Proyecto_final.forms
         private System.Windows.Forms.Timer timerSpawnEnemigos;
         private System.Windows.Forms.Timer timerGatilloMinions;
         private Label lblVidas;
-        private System.Windows.Forms.Timer timerMovMinios;
+        private System.Windows.Forms.Timer timerMovMiniosYDisp;
         private System.Windows.Forms.Timer timerMovInicialBoss;
         private System.Windows.Forms.Timer timerGatilloBoss;
         private System.Windows.Forms.Timer timerMovBoss;
+        private System.Windows.Forms.Timer timerDisparosBoss;
     }
 }

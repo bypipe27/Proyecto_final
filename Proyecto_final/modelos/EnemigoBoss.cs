@@ -10,11 +10,11 @@ namespace Proyecto_final.modelos
     {
 
         public EnemigoBoss() : base(
-            Image.FromFile("..\\..\\..\\recursos\\nave_boss1.png"),
+            Image.FromFile("..\\..\\..\\Resources\\Nave_boss.png"),
             80,
             54,
-            1,
             10,
+            20,
             10)
         {
             this.Name = "NaveBoss";
@@ -25,6 +25,15 @@ namespace Proyecto_final.modelos
             return velMovimiento;
         }
 
+        public int getVidas()
+        {
+        return vidas; 
+        }
+
+        public void restarVida()
+        {
+            this.vidas--;
+        }
 
         public int getPuntos()
         {

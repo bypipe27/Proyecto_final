@@ -11,7 +11,7 @@ namespace Proyecto_final.modelos
         
 
         public NaveJugador() : base(
-            Image.FromFile("..\\..\\..\\recursos\\nave_jugador.png"),
+            Image.FromFile("..\\..\\..\\Resources\\Nave_hero.png"),
             61,
             71,
             3,

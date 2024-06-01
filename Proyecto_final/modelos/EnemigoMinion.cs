@@ -11,7 +11,7 @@ namespace Proyecto_final.modelos
         private String orientacionMov;
 
         public EnemigoMinion() : base(
-            Image.FromFile("..\\..\\..\\recursos\\nave_boss1.png"),
+            Image.FromFile("..\\..\\..\\Resources\\nave_minions.png"),
             60,
             40,
             1,

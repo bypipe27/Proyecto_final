@@ -12,7 +12,7 @@ namespace Proyecto_final.utilidades
         {
             IZQ,
             DER,
-            NONE
+            ABJ
         }
     }
 }
