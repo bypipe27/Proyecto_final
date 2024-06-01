@@ -673,10 +673,14 @@ namespace Proyecto_final.forms
         {
             PictureBox Explosion = new PictureBox
             {
-                BackColor = Color.Red,
-                Size = new Size(20, 20),
+                Image = Image.FromFile("..\\..\\..\\Resources\\explosion_colision.png"),
+                SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
+                TabIndex = 2,
+                TabStop = false,
+                Size = new Size(40, 40),
                 Location = new Point(X, Y),
-                Visible = true
+                Visible = true,
+                BackColor = System.Drawing.Color.Transparent
             };
 
             System.Windows.Forms.Timer timerExplosion = new System.Windows.Forms.Timer();
