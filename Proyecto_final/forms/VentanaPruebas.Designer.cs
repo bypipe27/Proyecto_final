@@ -61,7 +61,6 @@ namespace Proyecto_final.forms
             // 
             // timerMovJugador
             // 
-            timerMovJugador.Interval = 150;
             timerMovJugador.Tick += timerFlujoDeMovJug;
             // 
             // timerSpawnEnemigos

@@ -159,7 +159,7 @@ namespace Proyecto_final.forms
                     liberarRecursosProyectilJugador(disparosJugador[i]);
                 }
             }
-            if (enemigoBoss.Visible)
+            if ( timersActivos.Contains(timerMovBoss))
             {
                 for (int i = 0; i < disparosJugador.Count; i++)
                 {
@@ -201,11 +201,8 @@ namespace Proyecto_final.forms
                             break;
                         }
                     }
-
-
                 }
             }
-
 
             if (enemigoBoss.getVidas() == 0)
             {
@@ -453,6 +450,7 @@ namespace Proyecto_final.forms
             timersActivos.Add(timer);
             timer.Start();
         }
+        
         private void liberarTimer(System.Windows.Forms.Timer timer)
         {
             timer.Enabled = false;
@@ -538,6 +536,7 @@ namespace Proyecto_final.forms
 
             int velocidadBoss = enemigoBoss.velocidadBoss();
             int cntDisparosBossNoVisibles = 0;
+            int velCardinales = Convert.ToInt32(velocidadBoss * 1.3);
 
             for (int i = 0; i < disparosBoss.Count; i++)
             {
@@ -548,28 +547,28 @@ namespace Proyecto_final.forms
                         switch (j)
                         {
                             case 0:
-                                disparosBoss[i][j].Top -= velocidadBoss;
+                                disparosBoss[i][j].Top -= velCardinales;
                                 break;
                             case 1:
                                 disparosBoss[i][j].Top -= velocidadBoss;
                                 disparosBoss[i][j].Left -= velocidadBoss;
                                 break;
                             case 2:
-                                disparosBoss[i][j].Left -= velocidadBoss;
+                                disparosBoss[i][j].Left -= velCardinales;
                                 break;
                             case 3:
                                 disparosBoss[i][j].Left -= velocidadBoss;
                                 disparosBoss[i][j].Top += velocidadBoss;
                                 break;
                             case 4:
-                                disparosBoss[i][j].Top += velocidadBoss;
+                                disparosBoss[i][j].Top += velCardinales;
                                 break;
                             case 5:
                                 disparosBoss[i][j].Top += velocidadBoss;
                                 disparosBoss[i][j].Left += velocidadBoss;
                                 break;
                             case 6:
-                                disparosBoss[i][j].Left += velocidadBoss;
+                                disparosBoss[i][j].Left += velCardinales;
                                 break;
                             case 7:
                                 disparosBoss[i][j].Top -= velocidadBoss;

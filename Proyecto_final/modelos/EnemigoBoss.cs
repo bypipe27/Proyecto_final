@@ -8,7 +8,7 @@ namespace Proyecto_final.modelos
 {
     internal class EnemigoBoss : NaveEnemiga
     {
-        private static int vidaTotal = 100;
+        private static int vidaTotal = 50;
 
         public EnemigoBoss() : base(
             Image.FromFile("..\\..\\..\\Resources\\Nave_boss.png"),
