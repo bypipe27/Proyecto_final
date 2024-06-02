@@ -1,3 +1,5 @@
+using Proyecto_final.forms;
+
 namespace Proyecto_final
 {
     internal static class Program
@@ -11,7 +13,9 @@ namespace Proyecto_final
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new VentanaPrincipal());
+//Application.Run(new VentanaPrincipal());
+
+            Application.Run(new VentanaPruebas());
         }
     }
 }
