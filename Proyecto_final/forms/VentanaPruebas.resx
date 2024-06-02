@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="fontDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>3, 23</value>
-  </metadata>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblPuntaje.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -153,16 +150,16 @@
     <value>2</value>
   </data>
   <metadata name="timerFlujoDisparos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>119, 23</value>
+    <value>190, 17</value>
   </metadata>
   <metadata name="timerMovJugador.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>272, 23</value>
+    <value>342, 17</value>
   </metadata>
   <metadata name="timerSpawnEnemigos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>420, 23</value>
+    <value>491, 17</value>
   </metadata>
   <metadata name="timerGatilloMinions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>589, 23</value>
+    <value>660, 17</value>
   </metadata>
   <data name="lblVidas.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -199,19 +196,19 @@
     <value>1</value>
   </data>
   <metadata name="timerMovMiniosYDisp.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>748, 23</value>
+    <value>819, 17</value>
   </metadata>
   <metadata name="timerMovInicialBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>904, 23</value>
+    <value>17, 54</value>
   </metadata>
   <metadata name="timerMovBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1051, 23</value>
+    <value>178, 54</value>
   </metadata>
   <metadata name="timerGatilloBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1181, 23</value>
+    <value>308, 54</value>
   </metadata>
   <metadata name="timerDisparosBoss.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1321, 23</value>
+    <value>448, 54</value>
   </metadata>
   <data name="lblVidaBoss.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -249,6 +246,9 @@
   <data name="&gt;&gt;lblVidaBoss.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="timergarbageCollector.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -4404,6 +4404,9 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
+  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 38</value>
+  </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>900, 600</value>
   </data>
@@ -4415,12 +4418,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>VentanaPruebas</value>
-  </data>
-  <data name="&gt;&gt;fontDialog1.Name" xml:space="preserve">
-    <value>fontDialog1</value>
-  </data>
-  <data name="&gt;&gt;fontDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FontDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;timerFlujoDisparos.Name" xml:space="preserve">
     <value>timerFlujoDisparos</value>
@@ -4474,6 +4471,12 @@
     <value>timerDisparosBoss</value>
   </data>
   <data name="&gt;&gt;timerDisparosBoss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timergarbageCollector.Name" xml:space="preserve">
+    <value>timergarbageCollector</value>
+  </data>
+  <data name="&gt;&gt;timergarbageCollector.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

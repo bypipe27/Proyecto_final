@@ -32,7 +32,6 @@ namespace Proyecto_final.forms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPruebas));
-            fontDialog1 = new FontDialog();
             lblPuntaje = new Label();
             timerFlujoDisparos = new System.Windows.Forms.Timer(components);
             timerMovJugador = new System.Windows.Forms.Timer(components);
@@ -45,6 +44,7 @@ namespace Proyecto_final.forms
             timerGatilloBoss = new System.Windows.Forms.Timer(components);
             timerDisparosBoss = new System.Windows.Forms.Timer(components);
             lblVidaBoss = new Label();
+            timergarbageCollector = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // lblPuntaje
@@ -56,7 +56,7 @@ namespace Proyecto_final.forms
             // 
             // timerFlujoDisparos
             // 
-            timerFlujoDisparos.Interval = 200;
+            timerFlujoDisparos.Interval = 80;
             timerFlujoDisparos.Tick += timerDisparosJugador;
             // 
             // timerMovJugador
@@ -71,7 +71,7 @@ namespace Proyecto_final.forms
             // timerGatilloMinions
             // 
             timerGatilloMinions.Interval = 1500;
-            timerGatilloMinions.Tick += timerDisparoMinions;
+            timerGatilloMinions.Tick += timerAccionamientoDisparoMinions;
             // 
             // lblVidas
             // 
@@ -111,6 +111,11 @@ namespace Proyecto_final.forms
             lblVidaBoss.ForeColor = Color.Red;
             lblVidaBoss.Name = "lblVidaBoss";
             // 
+            // timergarbageCollector
+            // 
+            timergarbageCollector.Interval = 4000;
+            timergarbageCollector.Tick += accionamientoGarbageCollector;
+            // 
             // VentanaPruebas
             // 
             resources.ApplyResources(this, "$this");
@@ -122,6 +127,7 @@ namespace Proyecto_final.forms
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentanaPruebas";
+            Load += VentanaPruebas_Load;
             KeyDown += keyDownAction;
             KeyUp += keyUpAction;
             ResumeLayout(false);
@@ -129,8 +135,6 @@ namespace Proyecto_final.forms
         }
 
         #endregion
-
-        private FontDialog fontDialog1;
         private Label lblPuntaje;
         private System.Windows.Forms.Timer timerFlujoDisparos;
         private System.Windows.Forms.Timer timerMovJugador;
@@ -143,5 +147,8 @@ namespace Proyecto_final.forms
         private System.Windows.Forms.Timer timerMovBoss;
         private System.Windows.Forms.Timer timerDisparosBoss;
         private Label lblVidaBoss;
+        private System.Windows.Forms.Timer timergarbageCollector;
+
+
     }
 }

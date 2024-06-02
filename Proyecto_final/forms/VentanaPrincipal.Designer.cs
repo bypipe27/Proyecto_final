@@ -139,9 +139,9 @@
             logo_juego.BackColor = Color.FromArgb(29, 32, 40);
             logo_juego.BackgroundImageLayout = ImageLayout.Stretch;
             logo_juego.Dock = DockStyle.Fill;
-            logo_juego.Location = new Point(200, 0);
+            logo_juego.Location = new Point(203, 0);
             logo_juego.Name = "logo_juego";
-            logo_juego.Size = new Size(816, 526);
+            logo_juego.Size = new Size(813, 526);
             logo_juego.TabIndex = 5;
             // 
             // Menu
@@ -159,7 +159,7 @@
             Menu.Dock = DockStyle.Left;
             Menu.Location = new Point(0, 0);
             Menu.Name = "Menu";
-            Menu.Size = new Size(200, 526);
+            Menu.Size = new Size(203, 526);
             Menu.TabIndex = 4;
             // 
             // pictureBox2
@@ -177,9 +177,9 @@
             // 
             Btn_Inicio.Cursor = Cursors.Hand;
             Btn_Inicio.Image = Properties.Resources.nave_inicio;
-            Btn_Inicio.Location = new Point(6, 6);
+            Btn_Inicio.Location = new Point(3, 6);
             Btn_Inicio.Name = "Btn_Inicio";
-            Btn_Inicio.Size = new Size(191, 97);
+            Btn_Inicio.Size = new Size(197, 124);
             Btn_Inicio.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Inicio.TabIndex = 10;
             Btn_Inicio.TabStop = false;
@@ -188,7 +188,7 @@
             // panel4
             // 
             panel4.BackColor = Color.DarkCyan;
-            panel4.Location = new Point(0, 245);
+            panel4.Location = new Point(3, 351);
             panel4.Name = "panel4";
             panel4.Size = new Size(10, 54);
             panel4.TabIndex = 6;
@@ -203,7 +203,7 @@
             Btn_About.FlatStyle = FlatStyle.Flat;
             Btn_About.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             Btn_About.ForeColor = Color.Cornsilk;
-            Btn_About.Location = new Point(12, 245);
+            Btn_About.Location = new Point(15, 351);
             Btn_About.Name = "Btn_About";
             Btn_About.Size = new Size(192, 54);
             Btn_About.TabIndex = 5;
@@ -214,7 +214,7 @@
             // panel3
             // 
             panel3.BackColor = Color.DarkCyan;
-            panel3.Location = new Point(0, 176);
+            panel3.Location = new Point(3, 254);
             panel3.Name = "panel3";
             panel3.Size = new Size(10, 54);
             panel3.TabIndex = 4;
@@ -229,7 +229,7 @@
             Btn_Start.FlatStyle = FlatStyle.Flat;
             Btn_Start.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             Btn_Start.ForeColor = Color.Cornsilk;
-            Btn_Start.Location = new Point(12, 176);
+            Btn_Start.Location = new Point(15, 254);
             Btn_Start.Name = "Btn_Start";
             Btn_Start.Size = new Size(188, 54);
             Btn_Start.TabIndex = 3;
@@ -240,7 +240,7 @@
             // panel2
             // 
             panel2.BackColor = Color.DarkCyan;
-            panel2.Location = new Point(0, 109);
+            panel2.Location = new Point(3, 155);
             panel2.Name = "panel2";
             panel2.Size = new Size(10, 54);
             panel2.TabIndex = 2;
@@ -255,7 +255,7 @@
             Btn_Levels.FlatStyle = FlatStyle.Flat;
             Btn_Levels.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             Btn_Levels.ForeColor = Color.Cornsilk;
-            Btn_Levels.Location = new Point(12, 109);
+            Btn_Levels.Location = new Point(15, 155);
             Btn_Levels.Name = "Btn_Levels";
             Btn_Levels.Size = new Size(188, 54);
             Btn_Levels.TabIndex = 1;

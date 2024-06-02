@@ -113,6 +113,26 @@ namespace Proyecto_final.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap level_1 {
+            get {
+                object obj = ResourceManager.GetObject("level_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap level_11 {
+            get {
+                object obj = ResourceManager.GetObject("level_11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap maximizar {
             get {
                 object obj = ResourceManager.GetObject("maximizar", resourceCulture);
@@ -133,9 +153,39 @@ namespace Proyecto_final.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap naev {
+            get {
+                object obj = ResourceManager.GetObject("naev", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nave_inicio {
             get {
                 object obj = ResourceManager.GetObject("nave_inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nave2 {
+            get {
+                object obj = ResourceManager.GetObject("nave2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next_level {
+            get {
+                object obj = ResourceManager.GetObject("next_level", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

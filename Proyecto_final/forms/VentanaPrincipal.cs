@@ -11,7 +11,7 @@ namespace Proyecto_final
 
         private void abrirFormJuego(object formhija)
         {
-            if (this.Menu.Controls.Count > 0 && this.logo_juego.Controls.Count > 0)
+            if ((this.Menu.Controls.Count > 0) && (this.logo_juego.Controls.Count > 0))
             {
                 //this.Menu.Controls.Clear();
                 /*this.Menu.Controls.RemoveAt(0);
@@ -69,6 +69,7 @@ namespace Proyecto_final
                 this.logo_juego.Controls.Add(form);
                 this.logo_juego.Tag = form;
                 form.Show();
+                
             }
             else if (this.logo_juego.Controls.Count == 0)
             {
@@ -136,7 +137,7 @@ namespace Proyecto_final
 
         private void Btn_Levels_Click_1(object sender, EventArgs e)
         {
-
+            abrirForm(new Niveles());
         }
 
         private void Btn_Inicio_Click(object sender, EventArgs e)   // IMAGEN COMO UN BOTON (INICIO)
