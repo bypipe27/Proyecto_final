@@ -36,7 +36,9 @@
             // nombre_juego
             // 
             nombre_juego.BackColor = Color.Transparent;
+            nombre_juego.BackgroundImage = Properties.Resources.Fondo_inicio;
             nombre_juego.Image = (Image)resources.GetObject("nombre_juego.Image");
+            nombre_juego.InitialImage = Properties.Resources.Fondo_inicio;
             nombre_juego.Location = new Point(216, 12);
             nombre_juego.Name = "nombre_juego";
             nombre_juego.Size = new Size(307, 143);
@@ -44,7 +46,7 @@
             nombre_juego.TabIndex = 10;
             nombre_juego.TabStop = false;
             // 
-            // incio
+            // inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -55,7 +57,7 @@
             Controls.Add(nombre_juego);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "incio";
+            Name = "inicio";
             Text = "incio";
             ((System.ComponentModel.ISupportInitialize)nombre_juego).EndInit();
             ResumeLayout(false);

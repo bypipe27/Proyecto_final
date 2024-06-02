@@ -58,6 +58,7 @@
             Btn_Level1.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Level1.TabIndex = 1;
             Btn_Level1.TabStop = false;
+            Btn_Level1.Click += Btn_Level1_Click;
             // 
             // Btn_NextLevel
             // 
@@ -69,6 +70,7 @@
             Btn_NextLevel.SizeMode = PictureBoxSizeMode.StretchImage;
             Btn_NextLevel.TabIndex = 2;
             Btn_NextLevel.TabStop = false;
+            Btn_NextLevel.Click += Btn_NextLevel_Click;
             // 
             // pictureBox2
             // 

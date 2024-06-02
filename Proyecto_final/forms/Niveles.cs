@@ -16,5 +16,15 @@ namespace Proyecto_final
         {
             InitializeComponent();
         }
+
+        private void Btn_Level1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_NextLevel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
