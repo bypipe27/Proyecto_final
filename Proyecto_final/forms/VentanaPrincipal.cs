@@ -1,3 +1,4 @@
+using Proyecto_final.forms;
 using System.Windows.Forms;
 
 namespace Proyecto_final
@@ -9,7 +10,33 @@ namespace Proyecto_final
             InitializeComponent();
         }
 
-
+        private void abrirFormJuego(object formhija)
+        {
+            if (this.Menu.Controls.Count > 0 && this.logo_juego.Controls.Count > 0)
+            {
+                //this.Menu.Controls.Clear();
+                this.Menu.Controls.RemoveAt(0);
+                this.logo_juego.Controls.RemoveAt(0);
+                Form form = formhija as Form;
+                form.TopLevel = true;
+                
+                form.Width = 900;
+                form.Height = 800;
+                form.Dock = DockStyle.Fill;
+                //this.logo_juego.Controls.Add(form);
+                //this.logo_juego.Tag = form;
+                form.ShowDialog();
+            }
+            else if (this.Menu.Controls.Count == 0 && this.logo_juego.Controls.Count == 0)
+            {
+                Form form = formhija as Form;
+                form.TopLevel = true;
+                form.Dock = DockStyle.Fill;
+                this.logo_juego.Controls.Add(form);
+                this.logo_juego.Tag = form;
+                form.Show();
+            }
+        }
 
         private void abrirForm(object formhija)
         {
@@ -81,7 +108,7 @@ namespace Proyecto_final
 
         private void panel_Dynamic_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void pictureBox2_Click_1(object sender, EventArgs e)
@@ -92,6 +119,11 @@ namespace Proyecto_final
         private void Btn_Levels_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Btn_Start_Click(object sender, EventArgs e)
+        {
+            abrirFormJuego(new VentanaPruebas());
         }
     }
 }

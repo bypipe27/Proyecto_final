@@ -141,7 +141,7 @@
             // 
             Btn_Inicio.Cursor = Cursors.Hand;
             Btn_Inicio.Image = Properties.Resources.nave_inicio;
-            Btn_Inicio.Location = new Point(3, 6);
+            Btn_Inicio.Location = new Point(6, 6);
             Btn_Inicio.Name = "Btn_Inicio";
             Btn_Inicio.Size = new Size(191, 97);
             Btn_Inicio.SizeMode = PictureBoxSizeMode.Zoom;
@@ -199,6 +199,7 @@
             Btn_Start.TabIndex = 3;
             Btn_Start.Text = "START";
             Btn_Start.UseVisualStyleBackColor = true;
+            Btn_Start.Click += Btn_Start_Click;
             // 
             // panel2
             // 
