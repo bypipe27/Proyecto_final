@@ -11,9 +11,11 @@ namespace Proyecto_final
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new VentanaPrincipal());
+
+            //Application.Run(new Start());
+            Application.Run(new VentanaPrincipal());
             //Application.Run(new Info());
-            Application.Run(new Start());
+            
         }
     }
 }

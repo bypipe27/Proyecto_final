@@ -121,6 +121,9 @@
   <data name="boton_salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\boton_salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="galaxia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\galaxia.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="restaurar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\restaurar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,7 +142,7 @@
   <data name="boton_cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\boton_cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="galaxia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\galaxia.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="galaxia_fija" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\galaxia_fija.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
