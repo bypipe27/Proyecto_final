@@ -1,3 +1,5 @@
+using Proyecto_final.forms;
+
 namespace Proyecto_final
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace Proyecto_final
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            //Application.Run(new Start());
+            //Application.Run(new VentanaPruebas());
             Application.Run(new VentanaPrincipal());
             //Application.Run(new Info());
             

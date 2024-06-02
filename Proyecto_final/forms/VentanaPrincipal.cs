@@ -1,5 +1,4 @@
 using Proyecto_final.forms;
-using System.Windows.Forms;
 
 namespace Proyecto_final
 {
@@ -15,26 +14,47 @@ namespace Proyecto_final
             if (this.Menu.Controls.Count > 0 && this.logo_juego.Controls.Count > 0)
             {
                 //this.Menu.Controls.Clear();
-                this.Menu.Controls.RemoveAt(0);
-                this.logo_juego.Controls.RemoveAt(0);
+                /*this.Menu.Controls.RemoveAt(0);
+                this.logo_juego.Controls.RemoveAt(0);*/
+                //this.panel_Principal.Controls.RemoveAt(0);.
+
+                //  ELIMINAMOS TODOS LOS PANELES Y BOTONES QUE TIENE EL FORM PRINCIPAL
+                this.panel_Principal.Controls.Remove(Menu);
+                this.panel_Principal.Controls.Remove(logo_juego);
+                this.panel_Principal.Controls.Remove(panel2);
+                this.panel_Principal.Controls.Remove(panel3);
+                this.panel_Principal.Controls.Remove(panel4);
+
+                //  CREAMOS EL OBJETO FORM, DEFINIMOS QUE NO SEA TOPLEVEL
+                // LE AGREGAMOS TODO LO DEL JUEGO Y LO MOSTRAMOS
+
                 Form form = formhija as Form;
-                form.TopLevel = true;
-                
-                form.Width = 900;
-                form.Height = 800;
+                form.TopLevel = false;
                 form.Dock = DockStyle.Fill;
+                this.panel_Principal.Controls.Add(form);
+                this.panel_Principal.Tag = form;
+                form.Show();
+                
                 //this.logo_juego.Controls.Add(form);
                 //this.logo_juego.Tag = form;
-                form.ShowDialog();
+                //form.ShowDialog();
             }
             else if (this.Menu.Controls.Count == 0 && this.logo_juego.Controls.Count == 0)
             {
+
                 Form form = formhija as Form;
+                form.TopLevel = false;
+                form.Dock = DockStyle.Fill;
+                this.panel_Principal.Controls.Add(form);
+                this.panel_Principal.Tag = form;
+                form.Show();
+
+                /*Form form = formhija as Form;
                 form.TopLevel = true;
                 form.Dock = DockStyle.Fill;
                 this.logo_juego.Controls.Add(form);
                 this.logo_juego.Tag = form;
-                form.Show();
+                form.Show();*/
             }
         }
 
@@ -66,15 +86,6 @@ namespace Proyecto_final
             Application.Exit();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
         private void Btn_Maximizar_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -99,31 +110,39 @@ namespace Proyecto_final
 
         }
 
-        private void Btn_Help_Click(object sender, EventArgs e)
-        {
-            abrirForm(new Info());
-            //Info formAbout = new Info();
-            //formAbout.ShowDialog();
-        }
-
         private void panel_Dynamic_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void pictureBox2_Click_1(object sender, EventArgs e)
+        private void Btn_Start_Click_1(object sender, EventArgs e)  //  BOTON START
+        {
+            abrirFormJuego(new VentanaPruebas());
+        }
+
+        private void Btn_About_Click(object sender, EventArgs e)//  BOTON ABOUT
+        {
+            abrirForm(new Info());
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)// VENTANA EMERGENTE
+        {
+            DialogResult result = MessageBox.Show("¿Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void Btn_Levels_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_Inicio_Click(object sender, EventArgs e)   // IMAGEN COMO UN BOTON (INICIO)
         {
             abrirForm(new inicio());
         }
 
-        private void Btn_Levels_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btn_Start_Click(object sender, EventArgs e)
-        {
-            abrirFormJuego(new VentanaPruebas());
-        }
     }
 }
