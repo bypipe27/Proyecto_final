@@ -159,7 +159,7 @@ namespace Proyecto_final.forms
                     liberarRecursosProyectilJugador(disparosJugador[i]);
                 }
             }
-            if (timersActivos.Contains(timerMovBoss))
+            if ( timersActivos.Contains(timerMovBoss))
             {
                 for (int i = 0; i < disparosJugador.Count; i++)
                 {
@@ -176,7 +176,7 @@ namespace Proyecto_final.forms
                 }
             }
 
-            if (minionsActivos.Count > 0)
+            if (minionsActivos.Count > 0 ) 
             {
                 //Detección de colision entre proyectiles de jugador y nave o proyectiles minions
                 for (int ind = 0; ind < minionsActivos.Count; ind++)
@@ -450,14 +450,14 @@ namespace Proyecto_final.forms
             timersActivos.Add(timer);
             timer.Start();
         }
-
+        
         private void liberarTimer(System.Windows.Forms.Timer timer)
         {
             timer.Enabled = false;
             timersActivos.Remove(timer);
             timer.Dispose();
         }
-
+        
         //Resta la vida del jugador y lo elimina si llega a 0
         private void danoNaveJug()
         {
@@ -499,7 +499,7 @@ namespace Proyecto_final.forms
                 intergrarTimer(timerMovBoss);
                 intergrarTimer(timerGatilloBoss);
                 intergrarTimer(timerDisparosBoss);
-
+                
 
             }
         }
@@ -697,7 +697,7 @@ namespace Proyecto_final.forms
         {
             try
             {
-                for (int i = 0; i < listaTimersExplosion.Count; i++)
+                for(int i = 0; i < listaTimersExplosion.Count; i++)
                 {
                     if (listaTimersExplosion[i].Tag == timerTag)
                     {
@@ -708,7 +708,7 @@ namespace Proyecto_final.forms
                         listaTimersExplosion.Remove(listaTimersExplosion[i]);
                         break;
                     }
-                }
+                }                
             }
             catch (Exception ex)
             {

@@ -195,6 +195,7 @@ namespace Proyecto_final.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap restaurar {
             get {
+
                 object obj = ResourceManager.GetObject("restaurar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }

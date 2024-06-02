@@ -1,6 +1,14 @@
-using Proyecto_final.forms;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Proyecto_final
+namespace Proyecto_final.forms
 {
     public partial class VentanaPrincipal : Form
     {
@@ -128,7 +136,7 @@ namespace Proyecto_final
 
         private void pictureBox2_Click(object sender, EventArgs e)// VENTANA EMERGENTE
         {
-            DialogResult result = MessageBox.Show("�Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
