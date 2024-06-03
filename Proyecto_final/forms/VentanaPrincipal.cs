@@ -150,7 +150,7 @@ namespace Proyecto_final.forms
 
         private void logo_juego_Paint(object sender, PaintEventArgs e)
         {
-            Btn_Inicio_Click(null, e);
+            //Btn_Inicio_Click(null, e);
         }
     }
 }
