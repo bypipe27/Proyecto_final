@@ -21,5 +21,10 @@ namespace Proyecto_final
         {
 
         }
+
+        private void lbl_InfoObjetivo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,8 +40,9 @@
             Fondo_Inicio.Dock = DockStyle.Fill;
             Fondo_Inicio.Image = Properties.Resources.Fondo_inicio;
             Fondo_Inicio.Location = new Point(0, 0);
+            Fondo_Inicio.Margin = new Padding(3, 4, 3, 4);
             Fondo_Inicio.Name = "Fondo_Inicio";
-            Fondo_Inicio.Size = new Size(813, 526);
+            Fondo_Inicio.Size = new Size(929, 701);
             Fondo_Inicio.SizeMode = PictureBoxSizeMode.StretchImage;
             Fondo_Inicio.TabIndex = 11;
             Fondo_Inicio.TabStop = false;
@@ -51,25 +52,27 @@
             nombre_juego.BackColor = Color.Transparent;
             nombre_juego.Image = Properties.Resources.Logo_juego;
             nombre_juego.InitialImage = Properties.Resources.Fondo_inicio;
-            nombre_juego.Location = new Point(334, 44);
+            nombre_juego.Location = new Point(460, 68);
+            nombre_juego.Margin = new Padding(3, 4, 3, 4);
             nombre_juego.Name = "nombre_juego";
-            nombre_juego.Size = new Size(307, 253);
+            nombre_juego.Size = new Size(351, 337);
             nombre_juego.SizeMode = PictureBoxSizeMode.StretchImage;
             nombre_juego.TabIndex = 12;
             nombre_juego.TabStop = false;
             // 
             // inicio
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(813, 526);
+            ClientSize = new Size(929, 701);
             Controls.Add(nombre_juego);
             Controls.Add(Fondo_Inicio);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "inicio";
             Text = "incio";
             ((System.ComponentModel.ISupportInitialize)Fondo_Inicio).EndInit();
