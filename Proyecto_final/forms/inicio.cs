@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_final
 {
-    public partial class inicio : Form
+    public partial class Inicio : Form
     {
-        public inicio()
+        public Inicio()
         {
             InitializeComponent();
         }

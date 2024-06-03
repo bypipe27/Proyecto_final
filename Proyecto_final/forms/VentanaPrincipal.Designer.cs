@@ -66,9 +66,8 @@ namespace Proyecto_final.forms
             BarraTitle.Controls.Add(Btn_Cerrar);
             BarraTitle.Dock = DockStyle.Top;
             BarraTitle.Location = new Point(0, 0);
-            BarraTitle.Margin = new Padding(3, 4, 3, 4);
             BarraTitle.Name = "BarraTitle";
-            BarraTitle.Size = new Size(1161, 51);
+            BarraTitle.Size = new Size(1016, 38);
             BarraTitle.TabIndex = 0;
             // 
             // Btn_Restaurar
@@ -76,10 +75,9 @@ namespace Proyecto_final.forms
             Btn_Restaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Restaurar.Cursor = Cursors.Hand;
             Btn_Restaurar.Image = Properties.Resources.restaurar;
-            Btn_Restaurar.Location = new Point(1083, 9);
-            Btn_Restaurar.Margin = new Padding(3, 4, 3, 4);
+            Btn_Restaurar.Location = new Point(948, 7);
             Btn_Restaurar.Name = "Btn_Restaurar";
-            Btn_Restaurar.Size = new Size(29, 33);
+            Btn_Restaurar.Size = new Size(25, 25);
             Btn_Restaurar.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Restaurar.TabIndex = 5;
             Btn_Restaurar.TabStop = false;
@@ -91,10 +89,9 @@ namespace Proyecto_final.forms
             Btn_Maximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Maximizar.Cursor = Cursors.Hand;
             Btn_Maximizar.Image = Properties.Resources.maximizar;
-            Btn_Maximizar.Location = new Point(1083, 9);
-            Btn_Maximizar.Margin = new Padding(3, 4, 3, 4);
+            Btn_Maximizar.Location = new Point(948, 7);
             Btn_Maximizar.Name = "Btn_Maximizar";
-            Btn_Maximizar.Size = new Size(29, 33);
+            Btn_Maximizar.Size = new Size(25, 25);
             Btn_Maximizar.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Maximizar.TabIndex = 4;
             Btn_Maximizar.TabStop = false;
@@ -105,10 +102,9 @@ namespace Proyecto_final.forms
             Btn_Minimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Minimizar.Cursor = Cursors.Hand;
             Btn_Minimizar.Image = Properties.Resources.minimizar;
-            Btn_Minimizar.Location = new Point(1048, 9);
-            Btn_Minimizar.Margin = new Padding(3, 4, 3, 4);
+            Btn_Minimizar.Location = new Point(917, 7);
             Btn_Minimizar.Name = "Btn_Minimizar";
-            Btn_Minimizar.Size = new Size(29, 33);
+            Btn_Minimizar.Size = new Size(25, 25);
             Btn_Minimizar.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Minimizar.TabIndex = 3;
             Btn_Minimizar.TabStop = false;
@@ -119,10 +115,9 @@ namespace Proyecto_final.forms
             Btn_Cerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn_Cerrar.Cursor = Cursors.Hand;
             Btn_Cerrar.Image = Properties.Resources.boton_cerrar;
-            Btn_Cerrar.Location = new Point(1119, 9);
-            Btn_Cerrar.Margin = new Padding(3, 4, 3, 4);
+            Btn_Cerrar.Location = new Point(979, 7);
             Btn_Cerrar.Name = "Btn_Cerrar";
-            Btn_Cerrar.Size = new Size(29, 33);
+            Btn_Cerrar.Size = new Size(25, 25);
             Btn_Cerrar.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Cerrar.TabIndex = 0;
             Btn_Cerrar.TabStop = false;
@@ -133,10 +128,9 @@ namespace Proyecto_final.forms
             panel_Principal.Controls.Add(logo_juego);
             panel_Principal.Controls.Add(Menu);
             panel_Principal.Dock = DockStyle.Fill;
-            panel_Principal.Location = new Point(0, 51);
-            panel_Principal.Margin = new Padding(3, 4, 3, 4);
+            panel_Principal.Location = new Point(0, 38);
             panel_Principal.Name = "panel_Principal";
-            panel_Principal.Size = new Size(1161, 701);
+            panel_Principal.Size = new Size(1016, 562);
             panel_Principal.TabIndex = 3;
             // 
             // logo_juego
@@ -145,12 +139,10 @@ namespace Proyecto_final.forms
             logo_juego.BackColor = Color.FromArgb(29, 32, 40);
             logo_juego.BackgroundImageLayout = ImageLayout.Stretch;
             logo_juego.Dock = DockStyle.Fill;
-            logo_juego.Location = new Point(232, 0);
-            logo_juego.Margin = new Padding(3, 4, 3, 4);
+            logo_juego.Location = new Point(203, 0);
             logo_juego.Name = "logo_juego";
-            logo_juego.Size = new Size(929, 701);
+            logo_juego.Size = new Size(813, 562);
             logo_juego.TabIndex = 5;
-            logo_juego.Paint += logo_juego_Paint;
             // 
             // Menu
             // 
@@ -164,9 +156,8 @@ namespace Proyecto_final.forms
             Menu.Controls.Add(Btn_Exit);
             Menu.Dock = DockStyle.Left;
             Menu.Location = new Point(0, 0);
-            Menu.Margin = new Padding(3, 4, 3, 4);
             Menu.Name = "Menu";
-            Menu.Size = new Size(232, 701);
+            Menu.Size = new Size(203, 562);
             Menu.TabIndex = 4;
             // 
             // pictureBox2
@@ -174,10 +165,9 @@ namespace Proyecto_final.forms
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Dock = DockStyle.Bottom;
             pictureBox2.Image = Properties.Resources.boton_salir;
-            pictureBox2.Location = new Point(0, 624);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(0, 504);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(232, 77);
+            pictureBox2.Size = new Size(203, 58);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
@@ -188,9 +178,8 @@ namespace Proyecto_final.forms
             Btn_Inicio.Cursor = Cursors.Hand;
             Btn_Inicio.Image = Properties.Resources.Logo_juego;
             Btn_Inicio.Location = new Point(3, 0);
-            Btn_Inicio.Margin = new Padding(3, 4, 3, 4);
             Btn_Inicio.Name = "Btn_Inicio";
-            Btn_Inicio.Size = new Size(229, 197);
+            Btn_Inicio.Size = new Size(200, 148);
             Btn_Inicio.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Inicio.TabIndex = 10;
             Btn_Inicio.TabStop = false;
@@ -199,10 +188,9 @@ namespace Proyecto_final.forms
             // panel4
             // 
             panel4.BackColor = Color.DarkCyan;
-            panel4.Location = new Point(3, 468);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Location = new Point(3, 351);
             panel4.Name = "panel4";
-            panel4.Size = new Size(11, 72);
+            panel4.Size = new Size(10, 54);
             panel4.TabIndex = 6;
             // 
             // Btn_About
@@ -215,10 +203,9 @@ namespace Proyecto_final.forms
             Btn_About.FlatStyle = FlatStyle.Flat;
             Btn_About.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             Btn_About.ForeColor = Color.Cornsilk;
-            Btn_About.Location = new Point(17, 468);
-            Btn_About.Margin = new Padding(3, 4, 3, 4);
+            Btn_About.Location = new Point(15, 351);
             Btn_About.Name = "Btn_About";
-            Btn_About.Size = new Size(219, 72);
+            Btn_About.Size = new Size(192, 54);
             Btn_About.TabIndex = 5;
             Btn_About.Text = "ABOUT";
             Btn_About.UseVisualStyleBackColor = true;
@@ -227,10 +214,9 @@ namespace Proyecto_final.forms
             // panel3
             // 
             panel3.BackColor = Color.DarkCyan;
-            panel3.Location = new Point(3, 296);
-            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Location = new Point(3, 222);
             panel3.Name = "panel3";
-            panel3.Size = new Size(11, 72);
+            panel3.Size = new Size(10, 54);
             panel3.TabIndex = 4;
             // 
             // Btn_Start
@@ -243,10 +229,9 @@ namespace Proyecto_final.forms
             Btn_Start.FlatStyle = FlatStyle.Flat;
             Btn_Start.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             Btn_Start.ForeColor = Color.Cornsilk;
-            Btn_Start.Location = new Point(17, 296);
-            Btn_Start.Margin = new Padding(3, 4, 3, 4);
+            Btn_Start.Location = new Point(15, 222);
             Btn_Start.Name = "Btn_Start";
-            Btn_Start.Size = new Size(215, 72);
+            Btn_Start.Size = new Size(188, 54);
             Btn_Start.TabIndex = 3;
             Btn_Start.Text = "START";
             Btn_Start.UseVisualStyleBackColor = true;
@@ -255,22 +240,20 @@ namespace Proyecto_final.forms
             // Btn_Exit
             // 
             Btn_Exit.Location = new Point(0, 0);
-            Btn_Exit.Margin = new Padding(3, 4, 3, 4);
             Btn_Exit.Name = "Btn_Exit";
-            Btn_Exit.Size = new Size(114, 67);
+            Btn_Exit.Size = new Size(100, 50);
             Btn_Exit.TabIndex = 12;
             Btn_Exit.TabStop = false;
             // 
             // VentanaPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1161, 752);
+            ClientSize = new Size(1016, 600);
             Controls.Add(panel_Principal);
             Controls.Add(BarraTitle);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "VentanaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

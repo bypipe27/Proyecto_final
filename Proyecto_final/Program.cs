@@ -1,5 +1,16 @@
 using Proyecto_final.forms;
 
+/*
+ 
+Autores:
+
+Felipe Calán
+Juan David Cifuentes
+Santigo Lopez
+
+ 
+ */
+
 namespace Proyecto_final
 {
     internal static class Program
@@ -13,14 +24,9 @@ namespace Proyecto_final
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-//Application.Run(new VentanaPrincipal());
 
-            //Application.Run(new VentanaPruebas());
             Application.Run(new VentanaPrincipal());
-            //Application.Run(new Info());
-            //Application.Run(new Niveles());
-            //Application.Run(new GameOver());
-            //Application.Run(new inicio());
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_final
 {
-    partial class inicio
+    partial class Inicio
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inicio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             Fondo_Inicio = new PictureBox();
             nombre_juego = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Fondo_Inicio).BeginInit();

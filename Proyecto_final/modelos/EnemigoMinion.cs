@@ -8,7 +8,7 @@ namespace Proyecto_final.modelos
 {
     internal class EnemigoMinion : NaveEnemiga
     {
-        private String orientacionMov;
+        private String orientacionMov = "";
 
         public EnemigoMinion() : base(
             Image.FromFile("..\\..\\..\\Resources\\nave_minions.png"),

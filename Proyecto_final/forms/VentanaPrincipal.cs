@@ -8,68 +8,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Proyecto_final.forms
 {
     public partial class VentanaPrincipal : Form
     {
+        private VentanaJuego consola_juego;
         public VentanaPrincipal()
         {
             InitializeComponent();
+            abrirForm(new Inicio());
+
         }
 
-        private void abrirFormJuego(object formhija)
+        private void abrirFormJuego()
         {
-            if ((this.Menu.Controls.Count > 0) && (this.logo_juego.Controls.Count > 0))
-            {
-                //  ELIMINAMOS TODOS LOS PANELES Y BOTONES QUE TIENE EL FORM PRINCIPAL
-                this.panel_Principal.Controls.Remove(Menu);
-                this.panel_Principal.Controls.Remove(logo_juego);
-                this.panel_Principal.Controls.Remove(panel3);
-                this.panel_Principal.Controls.Remove(panel4);
-
-                //  CREAMOS EL OBJETO FORM, DEFINIMOS QUE NO SEA TOPLEVEL
-                // LE AGREGAMOS TODO LO DEL JUEGO Y LO MOSTRAMOS
-
-                Form form = formhija as Form;
-                form.TopLevel = false;
-                form.Dock = DockStyle.Fill;
-                this.panel_Principal.Controls.Add(form);
-                this.panel_Principal.Tag = form;
-                form.Show();
-            }
-            else if (this.Menu.Controls.Count == 0 && this.logo_juego.Controls.Count == 0)
-            {
-                Form form = formhija as Form;
-                form.TopLevel = false;
-                form.Dock = DockStyle.Fill;
-                this.panel_Principal.Controls.Add(form);
-                this.panel_Principal.Tag = form;
-                form.Show();
-            }
+            this.Controls.Clear();
+            consola_juego = new VentanaJuego();
+            consola_juego.MinimumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
+            consola_juego.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
+            consola_juego.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
+            consola_juego.Show();
+            base.Dispose();
+            GC.Collect();
+            this.Close();
+            
+            
         }
 
-        private void abrirForm(object formhija)
+        private void abrirForm(Form formhija)
         {
             if (this.logo_juego.Controls.Count > 0)
             {
                 this.logo_juego.Controls.RemoveAt(0);
-                Form form = formhija as Form;
+            }
+                Form form = formhija;
                 form.TopLevel = false;
                 form.Dock = DockStyle.Fill;
                 this.logo_juego.Controls.Add(form);
                 this.logo_juego.Tag = form;
                 form.Show();
-
-            }
-            else if (this.logo_juego.Controls.Count == 0)
-            {
-                Form form = formhija as Form;
-                form.TopLevel = false;
-                form.Dock = DockStyle.Fill;
-                this.logo_juego.Controls.Add(form);
-                this.logo_juego.Tag = form;
-                form.Show();
-            }
         }
 
         private void Btn_Cerrar_Click(object sender, EventArgs e)
@@ -96,20 +75,10 @@ namespace Proyecto_final.forms
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void Menu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel_Dynamic_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Btn_Start_Click_1(object sender, EventArgs e)  //  BOTON START
         {
-            //abrirFormJuego(new VentanaPruebas());
-            abrirForm(new GameOver());
+            abrirFormJuego();
+            //abrirForm(new GameOver());
         }
 
         private void Btn_About_Click(object sender, EventArgs e)//  BOTON ABOUT
@@ -119,7 +88,7 @@ namespace Proyecto_final.forms
 
         private void pictureBox2_Click(object sender, EventArgs e)// VENTANA EMERGENTE
         {
-            DialogResult result = MessageBox.Show("�Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
@@ -128,12 +97,8 @@ namespace Proyecto_final.forms
 
         private void Btn_Inicio_Click(object sender, EventArgs e)   // IMAGEN COMO UN BOTON (INICIO)
         {
-            abrirForm(new inicio());
+            abrirForm(new Inicio());
         }
 
-        private void logo_juego_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
