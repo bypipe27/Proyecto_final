@@ -93,6 +93,7 @@ namespace Proyecto_final.forms
             int porcentajeVidaBoss = 100 * enemigoBoss.getVidas() / enemigoBoss.getVidaTotal();
 
             lblVidaBoss.Text = "Boss: " + porcentajeVidaBoss.ToString() + "%";
+            lblVidaBoss.Location= new System.Drawing.Point(anchoAreaTrabajo/2 - lblVidaBoss.Width/2, 30);
         }
 
         //Se captura los eventos referentes a cuando se presiona una tecla
