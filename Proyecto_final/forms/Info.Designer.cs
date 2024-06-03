@@ -34,6 +34,8 @@
             lbl_Comandos = new Label();
             lbl_Objetivo = new Label();
             lbl_About = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lbl_InfoObjetivo
@@ -91,6 +93,16 @@
             lbl_About.TabIndex = 7;
             lbl_About.Text = "COMO JUGAR";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Logo_juego;
+            pictureBox1.Location = new Point(600, 326);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(131, 68);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
             // Info
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -98,6 +110,7 @@
             AutoSize = true;
             BackColor = Color.FromArgb(29, 32, 40);
             ClientSize = new Size(743, 406);
+            Controls.Add(pictureBox1);
             Controls.Add(lbl_InfoObjetivo);
             Controls.Add(lbl_InfoComandos);
             Controls.Add(lbl_Comandos);
@@ -106,6 +119,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Info";
             Text = "Info";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +130,6 @@
         private Label lbl_Comandos;
         private Label lbl_Objetivo;
         private Label lbl_About;
+        private PictureBox pictureBox1;
     }
 }

@@ -176,7 +176,7 @@
             // Btn_Inicio
             // 
             Btn_Inicio.Cursor = Cursors.Hand;
-            Btn_Inicio.Image = Properties.Resources.nave_inicio;
+            Btn_Inicio.Image = Properties.Resources.Logo_juego;
             Btn_Inicio.Location = new Point(3, 6);
             Btn_Inicio.Name = "Btn_Inicio";
             Btn_Inicio.Size = new Size(197, 124);
