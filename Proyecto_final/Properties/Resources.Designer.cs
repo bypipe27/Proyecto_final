@@ -83,9 +83,29 @@ namespace Proyecto_final.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Gameover {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_Gameover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fondo_inicio {
             get {
                 object obj = ResourceManager.GetObject("Fondo_inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_inicio1 {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_inicio1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

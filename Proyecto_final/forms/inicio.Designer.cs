@@ -52,10 +52,10 @@
             nombre_juego.BackColor = Color.Transparent;
             nombre_juego.Image = Properties.Resources.Logo_juego;
             nombre_juego.InitialImage = Properties.Resources.Fondo_inicio;
-            nombre_juego.Location = new Point(460, 68);
+            nombre_juego.Location = new Point(617, 280);
             nombre_juego.Margin = new Padding(3, 4, 3, 4);
             nombre_juego.Name = "nombre_juego";
-            nombre_juego.Size = new Size(351, 337);
+            nombre_juego.Size = new Size(300, 291);
             nombre_juego.SizeMode = PictureBoxSizeMode.StretchImage;
             nombre_juego.TabIndex = 12;
             nombre_juego.TabStop = false;

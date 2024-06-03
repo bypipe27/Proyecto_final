@@ -98,10 +98,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_juego;
-            pictureBox1.Location = new Point(745, 565);
+            pictureBox1.Location = new Point(696, 504);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(171, 121);
+            pictureBox1.Size = new Size(220, 182);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
