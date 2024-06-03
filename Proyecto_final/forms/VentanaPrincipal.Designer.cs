@@ -42,8 +42,6 @@
             Btn_About = new Button();
             panel3 = new Panel();
             Btn_Start = new Button();
-            panel2 = new Panel();
-            Btn_Levels = new Button();
             Btn_Exit = new PictureBox();
             BarraTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Btn_Restaurar).BeginInit();
@@ -154,8 +152,6 @@
             Menu.Controls.Add(Btn_About);
             Menu.Controls.Add(panel3);
             Menu.Controls.Add(Btn_Start);
-            Menu.Controls.Add(panel2);
-            Menu.Controls.Add(Btn_Levels);
             Menu.Controls.Add(Btn_Exit);
             Menu.Dock = DockStyle.Left;
             Menu.Location = new Point(0, 0);
@@ -166,10 +162,11 @@
             // pictureBox2
             // 
             pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Dock = DockStyle.Bottom;
             pictureBox2.Image = Properties.Resources.boton_salir;
-            pictureBox2.Location = new Point(12, 456);
+            pictureBox2.Location = new Point(0, 468);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(71, 58);
+            pictureBox2.Size = new Size(203, 58);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
@@ -216,7 +213,7 @@
             // panel3
             // 
             panel3.BackColor = Color.DarkCyan;
-            panel3.Location = new Point(3, 254);
+            panel3.Location = new Point(3, 222);
             panel3.Name = "panel3";
             panel3.Size = new Size(10, 54);
             panel3.TabIndex = 4;
@@ -231,7 +228,7 @@
             Btn_Start.FlatStyle = FlatStyle.Flat;
             Btn_Start.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             Btn_Start.ForeColor = Color.Cornsilk;
-            Btn_Start.Location = new Point(15, 254);
+            Btn_Start.Location = new Point(15, 222);
             Btn_Start.Name = "Btn_Start";
             Btn_Start.Size = new Size(188, 54);
             Btn_Start.TabIndex = 3;
@@ -239,43 +236,13 @@
             Btn_Start.UseVisualStyleBackColor = true;
             Btn_Start.Click += Btn_Start_Click_1;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.DarkCyan;
-            panel2.Location = new Point(3, 155);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(10, 54);
-            panel2.TabIndex = 2;
-            // 
-            // Btn_Levels
-            // 
-            Btn_Levels.AutoSize = true;
-            Btn_Levels.Cursor = Cursors.Hand;
-            Btn_Levels.FlatAppearance.BorderColor = Color.White;
-            Btn_Levels.FlatAppearance.BorderSize = 0;
-            Btn_Levels.FlatAppearance.MouseOverBackColor = Color.DarkCyan;
-            Btn_Levels.FlatStyle = FlatStyle.Flat;
-            Btn_Levels.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
-            Btn_Levels.ForeColor = Color.Cornsilk;
-            Btn_Levels.Location = new Point(15, 155);
-            Btn_Levels.Name = "Btn_Levels";
-            Btn_Levels.Size = new Size(188, 54);
-            Btn_Levels.TabIndex = 1;
-            Btn_Levels.Text = "NIVELES";
-            Btn_Levels.UseVisualStyleBackColor = true;
-            Btn_Levels.Click += Btn_Levels_Click_1;
-            // 
             // Btn_Exit
             // 
-            /*Btn_Exit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Btn_Exit.Cursor = Cursors.Hand;
-            Btn_Exit.Image = Properties.Resources.boton_salir;
-            Btn_Exit.Location = new Point(0, 1201);
+            Btn_Exit.Location = new Point(0, 0);
             Btn_Exit.Name = "Btn_Exit";
-            Btn_Exit.Size = new Size(76, 54);
-            Btn_Exit.SizeMode = PictureBoxSizeMode.Zoom;
-            Btn_Exit.TabIndex = 0;
-            Btn_Exit.TabStop = false;*/
+            Btn_Exit.Size = new Size(100, 50);
+            Btn_Exit.TabIndex = 12;
+            Btn_Exit.TabStop = false;
             // 
             // VentanaPrincipal
             // 
@@ -298,7 +265,7 @@
             Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Inicio).EndInit();
-            //((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
             ResumeLayout(false);
         }
 
@@ -318,8 +285,6 @@
         private Button Btn_About;
         private Panel panel3;
         private Button Btn_Start;
-        private Panel panel2;
-        private Button Btn_Levels;
         private PictureBox Btn_Exit;
     }
 }

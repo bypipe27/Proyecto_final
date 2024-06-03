@@ -16,7 +16,6 @@ namespace Proyecto_final
                 //  ELIMINAMOS TODOS LOS PANELES Y BOTONES QUE TIENE EL FORM PRINCIPAL
                 this.panel_Principal.Controls.Remove(Menu);
                 this.panel_Principal.Controls.Remove(logo_juego);
-                this.panel_Principal.Controls.Remove(panel2);
                 this.panel_Principal.Controls.Remove(panel3);
                 this.panel_Principal.Controls.Remove(panel4);
 
@@ -117,11 +116,6 @@ namespace Proyecto_final
             {
                 Application.Exit();
             }
-        }
-
-        private void Btn_Levels_Click_1(object sender, EventArgs e)
-        {
-            abrirForm(new Niveles());
         }
 
         private void Btn_Inicio_Click(object sender, EventArgs e)   // IMAGEN COMO UN BOTON (INICIO)
