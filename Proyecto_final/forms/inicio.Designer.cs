@@ -41,7 +41,7 @@
             Fondo_Inicio.Image = Properties.Resources.Fondo_inicio;
             Fondo_Inicio.Location = new Point(0, 0);
             Fondo_Inicio.Name = "Fondo_Inicio";
-            Fondo_Inicio.Size = new Size(743, 406);
+            Fondo_Inicio.Size = new Size(813, 526);
             Fondo_Inicio.SizeMode = PictureBoxSizeMode.StretchImage;
             Fondo_Inicio.TabIndex = 11;
             Fondo_Inicio.TabStop = false;
@@ -51,7 +51,7 @@
             nombre_juego.BackColor = Color.Transparent;
             nombre_juego.Image = Properties.Resources.Logo_juego;
             nombre_juego.InitialImage = Properties.Resources.Fondo_inicio;
-            nombre_juego.Location = new Point(314, 51);
+            nombre_juego.Location = new Point(334, 44);
             nombre_juego.Name = "nombre_juego";
             nombre_juego.Size = new Size(307, 253);
             nombre_juego.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -65,7 +65,7 @@
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(743, 406);
+            ClientSize = new Size(813, 526);
             Controls.Add(nombre_juego);
             Controls.Add(Fondo_Inicio);
             DoubleBuffered = true;

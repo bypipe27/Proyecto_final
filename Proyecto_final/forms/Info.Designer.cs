@@ -43,7 +43,7 @@
             lbl_InfoObjetivo.AutoSize = true;
             lbl_InfoObjetivo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_InfoObjetivo.ForeColor = SystemColors.ControlLightLight;
-            lbl_InfoObjetivo.Location = new Point(187, 142);
+            lbl_InfoObjetivo.Location = new Point(241, 164);
             lbl_InfoObjetivo.Name = "lbl_InfoObjetivo";
             lbl_InfoObjetivo.Size = new Size(492, 75);
             lbl_InfoObjetivo.TabIndex = 11;
@@ -54,18 +54,19 @@
             lbl_InfoComandos.AutoSize = true;
             lbl_InfoComandos.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_InfoComandos.ForeColor = SystemColors.ControlLightLight;
-            lbl_InfoComandos.Location = new Point(187, 263);
+            lbl_InfoComandos.Location = new Point(241, 317);
             lbl_InfoComandos.Name = "lbl_InfoComandos";
             lbl_InfoComandos.Size = new Size(374, 90);
             lbl_InfoComandos.TabIndex = 9;
             lbl_InfoComandos.Text = resources.GetString("lbl_InfoComandos.Text");
+            lbl_InfoComandos.Click += lbl_InfoComandos_Click;
             // 
             // lbl_Comandos
             // 
             lbl_Comandos.AutoSize = true;
             lbl_Comandos.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lbl_Comandos.ForeColor = Color.DarkOrange;
-            lbl_Comandos.Location = new Point(28, 245);
+            lbl_Comandos.Location = new Point(28, 299);
             lbl_Comandos.Name = "lbl_Comandos";
             lbl_Comandos.Size = new Size(153, 37);
             lbl_Comandos.TabIndex = 9;
@@ -76,7 +77,7 @@
             lbl_Objetivo.AutoSize = true;
             lbl_Objetivo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lbl_Objetivo.ForeColor = Color.DarkOrange;
-            lbl_Objetivo.Location = new Point(28, 124);
+            lbl_Objetivo.Location = new Point(28, 146);
             lbl_Objetivo.Name = "lbl_Objetivo";
             lbl_Objetivo.Size = new Size(128, 37);
             lbl_Objetivo.TabIndex = 8;
@@ -87,7 +88,7 @@
             lbl_About.AutoSize = true;
             lbl_About.Font = new Font("Segoe UI", 29F, FontStyle.Bold);
             lbl_About.ForeColor = SystemColors.ControlLightLight;
-            lbl_About.Location = new Point(241, 18);
+            lbl_About.Location = new Point(261, 46);
             lbl_About.Name = "lbl_About";
             lbl_About.Size = new Size(279, 52);
             lbl_About.TabIndex = 7;
@@ -96,7 +97,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_juego;
-            pictureBox1.Location = new Point(600, 326);
+            pictureBox1.Location = new Point(670, 446);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(131, 68);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -109,7 +110,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(29, 32, 40);
-            ClientSize = new Size(743, 406);
+            ClientSize = new Size(813, 526);
             Controls.Add(pictureBox1);
             Controls.Add(lbl_InfoObjetivo);
             Controls.Add(lbl_InfoComandos);

@@ -13,11 +13,6 @@ namespace Proyecto_final
         {
             if ((this.Menu.Controls.Count > 0) && (this.logo_juego.Controls.Count > 0))
             {
-                //this.Menu.Controls.Clear();
-                /*this.Menu.Controls.RemoveAt(0);
-                this.logo_juego.Controls.RemoveAt(0);*/
-                //this.panel_Principal.Controls.RemoveAt(0);.
-
                 //  ELIMINAMOS TODOS LOS PANELES Y BOTONES QUE TIENE EL FORM PRINCIPAL
                 this.panel_Principal.Controls.Remove(Menu);
                 this.panel_Principal.Controls.Remove(logo_juego);
@@ -34,27 +29,15 @@ namespace Proyecto_final
                 this.panel_Principal.Controls.Add(form);
                 this.panel_Principal.Tag = form;
                 form.Show();
-                
-                //this.logo_juego.Controls.Add(form);
-                //this.logo_juego.Tag = form;
-                //form.ShowDialog();
             }
             else if (this.Menu.Controls.Count == 0 && this.logo_juego.Controls.Count == 0)
             {
-
                 Form form = formhija as Form;
                 form.TopLevel = false;
                 form.Dock = DockStyle.Fill;
                 this.panel_Principal.Controls.Add(form);
                 this.panel_Principal.Tag = form;
                 form.Show();
-
-                /*Form form = formhija as Form;
-                form.TopLevel = true;
-                form.Dock = DockStyle.Fill;
-                this.logo_juego.Controls.Add(form);
-                this.logo_juego.Tag = form;
-                form.Show();*/
             }
         }
 
@@ -69,7 +52,7 @@ namespace Proyecto_final
                 this.logo_juego.Controls.Add(form);
                 this.logo_juego.Tag = form;
                 form.Show();
-                
+
             }
             else if (this.logo_juego.Controls.Count == 0)
             {
@@ -118,7 +101,8 @@ namespace Proyecto_final
 
         private void Btn_Start_Click_1(object sender, EventArgs e)  //  BOTON START
         {
-            abrirFormJuego(new VentanaPruebas());
+            //abrirFormJuego(new VentanaPruebas());
+            abrirForm(new GameOver());
         }
 
         private void Btn_About_Click(object sender, EventArgs e)//  BOTON ABOUT
@@ -145,5 +129,9 @@ namespace Proyecto_final
             abrirForm(new inicio());
         }
 
+        private void logo_juego_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

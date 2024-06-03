@@ -143,6 +143,7 @@
             logo_juego.Name = "logo_juego";
             logo_juego.Size = new Size(813, 526);
             logo_juego.TabIndex = 5;
+            logo_juego.Paint += logo_juego_Paint;
             // 
             // Menu
             // 
@@ -164,6 +165,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.boton_salir;
             pictureBox2.Location = new Point(12, 456);
             pictureBox2.Name = "pictureBox2";
@@ -265,7 +267,7 @@
             // 
             // Btn_Exit
             // 
-            Btn_Exit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            /*Btn_Exit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             Btn_Exit.Cursor = Cursors.Hand;
             Btn_Exit.Image = Properties.Resources.boton_salir;
             Btn_Exit.Location = new Point(0, 1201);
@@ -273,7 +275,7 @@
             Btn_Exit.Size = new Size(76, 54);
             Btn_Exit.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Exit.TabIndex = 0;
-            Btn_Exit.TabStop = false;
+            Btn_Exit.TabStop = false;*/
             // 
             // VentanaPrincipal
             // 
@@ -296,7 +298,7 @@
             Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Inicio).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
+            //((System.ComponentModel.ISupportInitialize)Btn_Exit).EndInit();
             ResumeLayout(false);
         }
 
