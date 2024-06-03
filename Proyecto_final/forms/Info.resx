@@ -126,10 +126,10 @@ Mantén tu nave intacta y continúa acumulando puntos para lograr seguir subiend
   </data>
   <data name="lbl_InfoComandos.Text" xml:space="preserve">
     <value>Usa las teclas de flecha para mover tu nave espacial.
-Presiona la barra espaciadora para disparar balas contra los enemigos.
+Presiona la tecla S para disparar balas contra los enemigos.
 Mueve la nave a la izquierda y derecha, así como arriba y abajo, 
 para esquivar los disparos enemigos.
-Si un disparo enemigo te alcanza, perderás vida.
-El juego termina cuando tu nave pierde toda su vida.</value>
+Si un disparo enemigo te alcanza, perderás una vida.
+El juego termina cuando tu nave pierde el total de tres vidas.</value>
   </data>
 </root>

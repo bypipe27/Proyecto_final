@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Proyecto_final
 {
-    public partial class Niveles : Form
+    public partial class GameOver : Form
     {
-        public Niveles()
+        public GameOver()
         {
             InitializeComponent();
-        }
-
-        private void Btn_Level1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Btn_NextLevel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

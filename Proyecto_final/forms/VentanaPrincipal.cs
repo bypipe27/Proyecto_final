@@ -21,44 +21,31 @@ namespace Proyecto_final.forms
         {
             if ((this.Menu.Controls.Count > 0) && (this.logo_juego.Controls.Count > 0))
             {
-                //this.Menu.Controls.Clear();
-                /*this.Menu.Controls.RemoveAt(0);
-                this.logo_juego.Controls.RemoveAt(0);*/
-                //this.panel_Principal.Controls.RemoveAt(0);.
-
                 //  ELIMINAMOS TODOS LOS PANELES Y BOTONES QUE TIENE EL FORM PRINCIPAL
                 this.panel_Principal.Controls.Remove(Menu);
                 this.panel_Principal.Controls.Remove(logo_juego);
-                this.panel_Principal.Controls.Remove(panel2);
                 this.panel_Principal.Controls.Remove(panel3);
                 this.panel_Principal.Controls.Remove(panel4);
 
                 //  CREAMOS EL OBJETO FORM, DEFINIMOS QUE NO SEA TOPLEVEL
                 // LE AGREGAMOS TODO LO DEL JUEGO Y LO MOSTRAMOS
 
-
-
-                //this.logo_juego.Controls.Add(form);
-                //this.logo_juego.Tag = form;
-                //form.ShowDialog();
+                Form form = formhija as Form;
+                form.TopLevel = false;
+                form.Dock = DockStyle.Fill;
+                this.panel_Principal.Controls.Add(form);
+                this.panel_Principal.Tag = form;
+                form.Show();
             }
-
-            Form form = formhija as Form;
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            this.panel_Principal.Controls.Add(form);
-            this.panel_Principal.Tag = form;
-            form.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - BarraTitle.Height);
-            form.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height - BarraTitle.Height);
-            form.Show();
-
-            /*Form form = formhija as Form;
-            form.TopLevel = true;
-            form.Dock = DockStyle.Fill;
-            this.logo_juego.Controls.Add(form);
-            this.logo_juego.Tag = form;
-            form.Show();*/
-
+            else if (this.Menu.Controls.Count == 0 && this.logo_juego.Controls.Count == 0)
+            {
+                Form form = formhija as Form;
+                form.TopLevel = false;
+                form.Dock = DockStyle.Fill;
+                this.panel_Principal.Controls.Add(form);
+                this.panel_Principal.Tag = form;
+                form.Show();
+            }
         }
 
         private void abrirForm(object formhija)
@@ -121,7 +108,8 @@ namespace Proyecto_final.forms
 
         private void Btn_Start_Click_1(object sender, EventArgs e)  //  BOTON START
         {
-            abrirFormJuego(new VentanaPruebas());
+            //abrirFormJuego(new VentanaPruebas());
+            abrirForm(new GameOver());
         }
 
         private void Btn_About_Click(object sender, EventArgs e)//  BOTON ABOUT
@@ -131,16 +119,11 @@ namespace Proyecto_final.forms
 
         private void pictureBox2_Click(object sender, EventArgs e)// VENTANA EMERGENTE
         {
-            DialogResult result = MessageBox.Show("¿Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("�Deseas Salir?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
             }
-        }
-
-        private void Btn_Levels_Click_1(object sender, EventArgs e)
-        {
-            abrirForm(new Niveles());
         }
 
         private void Btn_Inicio_Click(object sender, EventArgs e)   // IMAGEN COMO UN BOTON (INICIO)
@@ -150,7 +133,7 @@ namespace Proyecto_final.forms
 
         private void logo_juego_Paint(object sender, PaintEventArgs e)
         {
-            //Btn_Inicio_Click(null, e);
+
         }
     }
 }

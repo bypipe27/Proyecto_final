@@ -19,7 +19,8 @@ namespace Proyecto_final
             Application.Run(new VentanaPrincipal());
             //Application.Run(new Info());
             //Application.Run(new Niveles());
-            
+            //Application.Run(new GameOver());
+            //Application.Run(new inicio());
         }
     }
 }
