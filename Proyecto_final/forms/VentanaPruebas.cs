@@ -151,6 +151,7 @@ namespace Proyecto_final.forms
         private void timerDisparosJugador(object sender, EventArgs e)
         {
             timerFlujoDisparos.Stop();
+
             for (int i = 0; i < disparosJugador.Count; i++)
             {
                 disparosJugador[i].Top -= naveJugador.velocidadMovNaveJugador();
@@ -159,6 +160,8 @@ namespace Proyecto_final.forms
                     liberarRecursosProyectilJugador(disparosJugador[i]);
                 }
             }
+
+            //Colision proyectil nave jugador y nave boss
             if ( timersActivos.Contains(timerMovBoss))
             {
                 for (int i = 0; i < disparosJugador.Count; i++)
@@ -718,11 +721,6 @@ namespace Proyecto_final.forms
             {
                 this.Controls.Remove(explosion);
             }
-
-        }
-
-        private void VentanaPruebas_Load(object sender, EventArgs e)
-        {
 
         }
     }

@@ -36,34 +36,29 @@ namespace Proyecto_final.forms
                 //  CREAMOS EL OBJETO FORM, DEFINIMOS QUE NO SEA TOPLEVEL
                 // LE AGREGAMOS TODO LO DEL JUEGO Y LO MOSTRAMOS
 
-                Form form = formhija as Form;
-                form.TopLevel = false;
-                form.Dock = DockStyle.Fill;
-                this.panel_Principal.Controls.Add(form);
-                this.panel_Principal.Tag = form;
-                form.Show();
-                
+
+
                 //this.logo_juego.Controls.Add(form);
                 //this.logo_juego.Tag = form;
                 //form.ShowDialog();
             }
-            else if (this.Menu.Controls.Count == 0 && this.logo_juego.Controls.Count == 0)
-            {
 
-                Form form = formhija as Form;
-                form.TopLevel = false;
-                form.Dock = DockStyle.Fill;
-                this.panel_Principal.Controls.Add(form);
-                this.panel_Principal.Tag = form;
-                form.Show();
+            Form form = formhija as Form;
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            this.panel_Principal.Controls.Add(form);
+            this.panel_Principal.Tag = form;
+            form.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - BarraTitle.Height);
+            form.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height - BarraTitle.Height);
+            form.Show();
 
-                /*Form form = formhija as Form;
-                form.TopLevel = true;
-                form.Dock = DockStyle.Fill;
-                this.logo_juego.Controls.Add(form);
-                this.logo_juego.Tag = form;
-                form.Show();*/
-            }
+            /*Form form = formhija as Form;
+            form.TopLevel = true;
+            form.Dock = DockStyle.Fill;
+            this.logo_juego.Controls.Add(form);
+            this.logo_juego.Tag = form;
+            form.Show();*/
+
         }
 
         private void abrirForm(object formhija)
@@ -77,7 +72,7 @@ namespace Proyecto_final.forms
                 this.logo_juego.Controls.Add(form);
                 this.logo_juego.Tag = form;
                 form.Show();
-                
+
             }
             else if (this.logo_juego.Controls.Count == 0)
             {
@@ -153,5 +148,9 @@ namespace Proyecto_final.forms
             abrirForm(new inicio());
         }
 
+        private void logo_juego_Paint(object sender, PaintEventArgs e)
+        {
+            Btn_Inicio_Click(null, e);
+        }
     }
 }

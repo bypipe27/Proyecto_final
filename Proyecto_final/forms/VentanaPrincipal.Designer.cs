@@ -145,6 +145,7 @@ namespace Proyecto_final.forms
             logo_juego.Name = "logo_juego";
             logo_juego.Size = new Size(813, 526);
             logo_juego.TabIndex = 5;
+            logo_juego.Paint += logo_juego_Paint;
             // 
             // Menu
             // 
@@ -284,8 +285,10 @@ namespace Proyecto_final.forms
             ClientSize = new Size(1016, 564);
             Controls.Add(panel_Principal);
             Controls.Add(BarraTitle);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentanaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             BarraTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Btn_Restaurar).EndInit();

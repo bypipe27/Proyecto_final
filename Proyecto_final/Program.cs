@@ -15,8 +15,6 @@ namespace Proyecto_final
             ApplicationConfiguration.Initialize();
 //Application.Run(new VentanaPrincipal());
 
-            Application.Run(new VentanaPruebas());
-
             //Application.Run(new VentanaPruebas());
             Application.Run(new VentanaPrincipal());
             //Application.Run(new Info());

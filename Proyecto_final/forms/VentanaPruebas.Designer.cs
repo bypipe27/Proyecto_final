@@ -127,7 +127,6 @@ namespace Proyecto_final.forms
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentanaPruebas";
-            Load += VentanaPruebas_Load;
             KeyDown += keyDownAction;
             KeyUp += keyUpAction;
             ResumeLayout(false);
