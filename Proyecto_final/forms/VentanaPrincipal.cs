@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 
 
@@ -15,6 +16,7 @@ namespace Proyecto_final.forms
     public partial class VentanaPrincipal : Form
     {
         private VentanaJuego consola_juego;
+        //private GameOver gameOver;
         public VentanaPrincipal()
         {
             InitializeComponent();
@@ -24,17 +26,15 @@ namespace Proyecto_final.forms
 
         private void abrirFormJuego()
         {
-            this.Controls.Clear();
-            consola_juego = new VentanaJuego();
+
+            consola_juego = new VentanaJuego(this);
             consola_juego.MinimumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
             consola_juego.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
             consola_juego.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
             consola_juego.Show();
-            base.Dispose();
-            GC.Collect();
-            this.Close();
+            this.Hide();
             
-            
+
         }
 
         private void abrirForm(Form formhija)
@@ -78,7 +78,6 @@ namespace Proyecto_final.forms
         private void Btn_Start_Click_1(object sender, EventArgs e)  //  BOTON START
         {
             abrirFormJuego();
-            //abrirForm(new GameOver());
         }
 
         private void Btn_About_Click(object sender, EventArgs e)//  BOTON ABOUT

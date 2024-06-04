@@ -14,25 +14,21 @@ namespace Proyecto_final
     public partial class GameOver : Form
     {
         VentanaPrincipal principal;
-        public GameOver(Image msj)
+        public GameOver(VentanaPrincipal principal)
         {
 
             InitializeComponent();
-            pictureBox1.Image = msj;
+            this.principal = principal;
+            timerTransicionVenPpal.Enabled = true;
             timerTransicionVenPpal.Start();
         }
 
         private void tiempoEsperaTransisionAVenPpal(object sender, EventArgs e)
         {
-            timerTransicionVenPpal.Stop();
             timerTransicionVenPpal.Enabled = false;
             timerTransicionVenPpal.Dispose();
-            this.Controls.Clear();
-            principal = new VentanaPrincipal();
-            principal.MinimumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
-            principal.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
-            principal.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
             principal.Show();
+            this.Controls.Clear();
             base.Dispose();
             GC.Collect();
             this.Close();
@@ -43,5 +39,11 @@ namespace Proyecto_final
         {
             Application.Exit();
         }
+
+        public void definirMensaje(Image image)
+        {
+            pictureBox1.Image = image;
+        }
+
     }
 }
