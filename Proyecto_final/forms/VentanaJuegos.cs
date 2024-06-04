@@ -8,28 +8,28 @@ namespace Proyecto_final.forms
         GameOver gameOver;
         VentanaPrincipal principal;
 
-        int cntMinions = 10;
-        int cntMaximadeMinions = 6;
-        List<EnemigoMinion> minionsActivos = new List<EnemigoMinion>();
-        EnemigoBoss enemigoBoss = new EnemigoBoss();
-        int anchoAreaTrabajo;
-        int altoAreaTrabajo;
-        int coorActualNaveJugadorX;
-        int coorActualNaveJugadorY;
+        private int cntMinions = 10;
+        private int cntMaximadeMinions = 6;
+        private List<EnemigoMinion> minionsActivos = new List<EnemigoMinion>();
+        private EnemigoBoss enemigoBoss = new EnemigoBoss();
+        private int anchoAreaTrabajo;
+        private int altoAreaTrabajo;
+        private int coorActualNaveJugadorX;
+        private int coorActualNaveJugadorY;
         private NaveJugador naveJugador = new NaveJugador();
-        List<PictureBox> disparosJugador = new List<PictureBox>();
-        List<PictureBox> disparosEnemigos = new List<PictureBox>();
-        List<List<PictureBox>> disparosBoss = new List<List<PictureBox>>();
-        HashSet<System.Windows.Forms.Timer> timersActivos = new HashSet<System.Windows.Forms.Timer>();
-        List<System.Windows.Forms.Timer> listaTimersExplosion = new List<System.Windows.Forms.Timer>();
-        Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>()
-        {
-                { Keys.Right, false},
-                { Keys.Left, false},
-                { Keys.Up, false},
-                { Keys.Down, false}
-        };
-        Random rand = new Random();
+        private List<PictureBox> disparosJugador = new List<PictureBox>();
+        private List<PictureBox> disparosEnemigos = new List<PictureBox>();
+        private List<List<PictureBox>> disparosBoss = new List<List<PictureBox>>();
+        private HashSet<System.Windows.Forms.Timer> timersActivos = new HashSet<System.Windows.Forms.Timer>();
+        private List<System.Windows.Forms.Timer> listaTimersExplosion = new List<System.Windows.Forms.Timer>();
+        private Dictionary<Keys, bool> estadosTeclas = new Dictionary<Keys, bool>()
+                                                        {
+                                                            { Keys.Right, false},
+                                                            { Keys.Left, false},
+                                                            { Keys.Up, false},
+                                                            { Keys.Down, false}
+                                                        };
+        private Random rand = new Random();
 
 
 
@@ -202,9 +202,10 @@ namespace Proyecto_final.forms
                 }
             }
 
+            //Detección de colision entre proyectiles de jugador y nave o proyectiles minions
             if (minionsActivos.Count > 0 ) 
             {
-                //Detección de colision entre proyectiles de jugador y nave o proyectiles minions
+                
                 for (int ind = 0; ind < minionsActivos.Count; ind++)
                 {
                     if (minionsActivos[ind].Bounds.IntersectsWith(naveJugador.Bounds))

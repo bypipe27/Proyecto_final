@@ -16,15 +16,5 @@ namespace Proyecto_final
         {
             InitializeComponent();
         }
-
-        private void lbl_InfoComandos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_InfoObjetivo_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

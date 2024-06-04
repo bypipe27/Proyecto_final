@@ -43,33 +43,31 @@
             lbl_InfoObjetivo.AutoSize = true;
             lbl_InfoObjetivo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_InfoObjetivo.ForeColor = SystemColors.ControlLightLight;
-            lbl_InfoObjetivo.Location = new Point(254, 195);
+            lbl_InfoObjetivo.Location = new Point(222, 146);
             lbl_InfoObjetivo.Name = "lbl_InfoObjetivo";
-            lbl_InfoObjetivo.Size = new Size(613, 100);
+            lbl_InfoObjetivo.Size = new Size(492, 75);
             lbl_InfoObjetivo.TabIndex = 11;
             lbl_InfoObjetivo.Text = resources.GetString("lbl_InfoObjetivo.Text");
-            lbl_InfoObjetivo.Click += lbl_InfoObjetivo_Click;
             // 
             // lbl_InfoComandos
             // 
             lbl_InfoComandos.AutoSize = true;
             lbl_InfoComandos.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_InfoComandos.ForeColor = SystemColors.ControlLightLight;
-            lbl_InfoComandos.Location = new Point(254, 399);
+            lbl_InfoComandos.Location = new Point(222, 299);
             lbl_InfoComandos.Name = "lbl_InfoComandos";
-            lbl_InfoComandos.Size = new Size(436, 120);
+            lbl_InfoComandos.Size = new Size(343, 90);
             lbl_InfoComandos.TabIndex = 9;
             lbl_InfoComandos.Text = resources.GetString("lbl_InfoComandos.Text");
-            lbl_InfoComandos.Click += lbl_InfoComandos_Click;
             // 
             // lbl_Comandos
             // 
             lbl_Comandos.AutoSize = true;
             lbl_Comandos.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lbl_Comandos.ForeColor = Color.DarkOrange;
-            lbl_Comandos.Location = new Point(32, 399);
+            lbl_Comandos.Location = new Point(28, 299);
             lbl_Comandos.Name = "lbl_Comandos";
-            lbl_Comandos.Size = new Size(189, 46);
+            lbl_Comandos.Size = new Size(153, 37);
             lbl_Comandos.TabIndex = 9;
             lbl_Comandos.Text = "Comandos";
             // 
@@ -78,9 +76,9 @@
             lbl_Objetivo.AutoSize = true;
             lbl_Objetivo.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lbl_Objetivo.ForeColor = Color.DarkOrange;
-            lbl_Objetivo.Location = new Point(32, 195);
+            lbl_Objetivo.Location = new Point(28, 146);
             lbl_Objetivo.Name = "lbl_Objetivo";
-            lbl_Objetivo.Size = new Size(157, 46);
+            lbl_Objetivo.Size = new Size(128, 37);
             lbl_Objetivo.TabIndex = 8;
             lbl_Objetivo.Text = "Objetivo";
             // 
@@ -89,30 +87,29 @@
             lbl_About.AutoSize = true;
             lbl_About.Font = new Font("Segoe UI", 29F, FontStyle.Bold);
             lbl_About.ForeColor = SystemColors.ControlLightLight;
-            lbl_About.Location = new Point(298, 61);
+            lbl_About.Location = new Point(261, 46);
             lbl_About.Name = "lbl_About";
-            lbl_About.Size = new Size(351, 66);
+            lbl_About.Size = new Size(279, 52);
             lbl_About.TabIndex = 7;
             lbl_About.Text = "COMO JUGAR";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_juego;
-            pictureBox1.Location = new Point(696, 504);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(609, 378);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(220, 182);
+            pictureBox1.Size = new Size(192, 136);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
             // Info
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(29, 32, 40);
-            ClientSize = new Size(929, 701);
+            ClientSize = new Size(813, 526);
             Controls.Add(pictureBox1);
             Controls.Add(lbl_InfoObjetivo);
             Controls.Add(lbl_InfoComandos);
@@ -120,7 +117,6 @@
             Controls.Add(lbl_Objetivo);
             Controls.Add(lbl_About);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Info";
             Text = "Info";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
