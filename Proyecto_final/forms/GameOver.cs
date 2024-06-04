@@ -25,6 +25,7 @@ namespace Proyecto_final
 
         private void tiempoEsperaTransisionAVenPpal(object sender, EventArgs e)
         {
+            
             timerTransicionVenPpal.Enabled = false;
             timerTransicionVenPpal.Dispose();
             principal.Show();

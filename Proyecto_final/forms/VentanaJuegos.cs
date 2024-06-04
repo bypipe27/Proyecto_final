@@ -48,6 +48,11 @@ namespace Proyecto_final.forms
         private void abrirFormGameOver(Image msj)
         {
 
+            foreach(System.Windows.Forms.Timer timer in timersActivos)
+            {
+                liberarTimer(timer);
+            }
+
             gameOver = new GameOver(principal);
             gameOver.definirMensaje(msj);
             gameOver.MinimumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
@@ -118,13 +123,8 @@ namespace Proyecto_final.forms
                     e.KeyCode == Keys.Down)
             {
                 estadosTeclas[e.KeyCode] = true;
+                
             }
-
-        }
-
-        //Se captura los eventos referentes a cuando se suelta una tecla presionada
-        private void keyUpAction(object sender, KeyEventArgs e)
-        {
             try
             {
                 //detecta si la tecla S encargada del disparo del jugador deja de presionarse y crea un proyecto siempre
@@ -148,6 +148,14 @@ namespace Proyecto_final.forms
             {
                 Console.WriteLine(ex.ToString());
             }
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+        }
+
+        //Se captura los eventos referentes a cuando se suelta una tecla presionada
+        private void keyUpAction(object sender, KeyEventArgs e)
+        {
+            
 
             //guarda el estado de la tecla que sera juzgada en timerFlujoDeMovJug - detiene el movimiento en la tecla liberada
             if (e.KeyCode == Keys.Right ||
@@ -157,6 +165,8 @@ namespace Proyecto_final.forms
             {
                 estadosTeclas[e.KeyCode] = false;
             }
+
+            e.Handled = true;
 
         }
 
@@ -226,9 +236,14 @@ namespace Proyecto_final.forms
                 this.Controls.Remove(this.enemigoBoss);
                 Image imageMsj = Image.FromFile("..\\..\\..\\Images_Gif\\youwin.gif");
                 abrirFormGameOver(imageMsj);
+                timerFlujoDisparos.Stop();
             }
+            else
+            {
+                timerFlujoDisparos.Start();
+            } 
 
-            timerFlujoDisparos.Start();
+            
         }
 
         //En este timer se controla el desplazamiento de la nave del jugador
@@ -467,7 +482,6 @@ namespace Proyecto_final.forms
         {
             timer.Enabled = false;
             timersActivos.Remove(timer);
-            timer.Dispose();
         }
         
         //Resta la vida del jugador y lo elimina si llega a 0
