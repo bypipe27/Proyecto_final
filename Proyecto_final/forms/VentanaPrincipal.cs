@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,12 +17,22 @@ namespace Proyecto_final.forms
     public partial class VentanaPrincipal : Form
     {
         private VentanaJuego consola_juego;
+        private SoundPlayer Musicplayer;
+
         //private GameOver gameOver;
         public VentanaPrincipal()
         {
             InitializeComponent();
             abrirForm(new Inicio());
-
+            if(File.Exists(@"Resources/Musica_fondo.wav"))
+            {
+                Musicplayer = new SoundPlayer(@"Resources/Musica_fondo.wav");
+                Musicplayer.PlayLooping();
+            }
+            else
+            {
+                MessageBox.Show("No se encontro el archivo de musica");
+            }
         }
 
         private void abrirFormJuego()
