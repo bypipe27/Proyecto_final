@@ -37,7 +37,7 @@ namespace Proyecto_final.forms
 
         private void abrirFormJuego()
         {
-
+            this.WindowState = FormWindowState.Normal;
             consola_juego = new VentanaJuego(this);
             consola_juego.MinimumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
             consola_juego.MaximumSize = new Size(this.ClientSize.Width, this.ClientSize.Height);
